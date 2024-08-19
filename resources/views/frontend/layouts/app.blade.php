@@ -43,7 +43,7 @@
 
             <!-- Global style (main) -->
             <link type="text/css" href="{{ asset('frontend/css/active-shop.css') }}" rel="stylesheet" media="screen">
-            <link type="text/css" href="{{ asset('frontend/css/header-dd.css') }}" rel="stylesheet" media="screen">
+            {{-- <link type="text/css" href="{{ asset('frontend/css/header-dd.css') }}" rel="stylesheet" media="screen"> --}}
 
             <!--Spectrum Stylesheet [ REQUIRED ]-->
             <link href="{{ asset('css/spectrum.css')}}" rel="stylesheet">
@@ -112,13 +112,15 @@
 
             <!-- Header -->
        
-            @include('frontend.partials.header.top_header')
+            {{-- @include('frontend.partials.header.top_header') --}}
+            @include('frontend.partials.header.top_yensao')
+
             @include('frontend.partials.header.main_nav')
             @include('frontend.partials.header.menu_mobile')
 
             @yield('content')
 
-            @include('frontend.partials.footer.footer_trongdong')
+            @include('frontend.partials.footer.footer_yensao')
             @include('frontend.partials.footer.hotline')
             @include('frontend.partials.modal')
 

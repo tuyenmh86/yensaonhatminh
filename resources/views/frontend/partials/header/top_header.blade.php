@@ -1,9 +1,9 @@
-	<div class="topheader_wrap" style="background-color: #fdf7f7;">
+	<div class="topheader_wrap" style="background-color: #f9e25e;">
 		<div class="topbar d-none d-md-block">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-7 col-xs-6 col-lg-8 col-md-8 a-left">
-						<span>Chào mừng bạn đến với làng nghề truyền thống Thạnh Hoà - Quảng Nam!</span>
+						<span>Chào mừng bạn đến với Yến Sào Nhật Minh!</span>
 					</div>
 					<div class="col-xs-6 col-sm-5 col-md-4 col-lg-4">
 						<ul class="list-inline f-right">
@@ -36,8 +36,8 @@
 						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-12">
 							<div class="logo a-left">
 								<a href="{{ route('home') }}" class="logo-wrapper ">
-									<img src="{{ asset('img\choidotthanhhoa_logo.png') }}"
-										alt="Làng nghề chổi đót Thạnh Hoà">
+									<img src="{{ asset(\App\GeneralSetting::first()->logo) }}"
+										alt="{{config('app.name')}}" style="max-height:120px;">
 								</a>
 							</div>
 						</div>
@@ -122,12 +122,14 @@
 			float:left;
 			position:relative;
 			border-bottom: 1px solid #ebebeb;
+			background-color: #bf1e2d;
 		}
 		.header-main {
   width:100%;
   float:left;
   height:123px;
-  padding:0px !important
+  padding:0px !important;
+
 }
 
 @media (max-width: 991px) {
