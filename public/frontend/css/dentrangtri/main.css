@@ -1,0 +1,156 @@
+ul {list-style: none outside; margin:0; padding:0;}
+.line-clamp{-webkit-box-orient: vertical;display: -webkit-box;overflow: hidden;}
+.slide-home{ position:relative; margin-top:1px;}
+.wapper{width:100%; display:block; margin-top:30px;}
+
+.box_left{ width:100%; float:left; margin-bottom:20px; border:solid 1px #f0f0f0;}
+.box_left .title-left{ width:100%; display:block; background-color:#000000; font-size:16px; font-weight:bold; text-transform:uppercase; margin:0; padding:9px 15px;color:#ffbe00;}
+.box_left a{ color:#ffbe00;}
+.box_left .fa{ color:#fff; padding-right:5px;}
+.box_left li{ width:100%; display:inline-block;padding:0 10px;}
+.box_left li .title_h3{ margin:0; padding:6px 0; font-size:14px;color:#676767;border-bottom:solid 1px #f0f0f0;}
+.box_left li:last-child .title_h3{ border-bottom:none;}
+.box_left li .title_h3:hover{padding-left:10px;}
+.box_left li .title_h3 a{color:#676767;}
+.box_left li .fa{ font-size:14px; padding-right:5px;color:#676767;}
+.btn-group-ul{ position:absolute; top:2px; right:17px;}
+.btn-group-ul .dropdown-menu{ width:auto; min-width:inherit !important; left:0 !important; background-color:#fff;}
+.btn-group-ul .btn .caret{ margin-left:10px;}
+.title-content{ width:100%; display:inline-block; font-size:24px; text-transform:uppercase; border-bottom:solid 2px #e2e2e2; margin-bottom:30px;}
+.item-product{ width:100%; position:relative; background-color:#fff; margin-bottom:30px;text-align:center; border:solid 1px #e4e4e4;}
+.item-product a{ width:100%; display:block;}
+.item-product figcaption{ background-color:#e2e2e2; padding:10px 14px; text-align:left;}
+.item-product .title-h2{ font-size:14px;color:#2d2d2d; font-weight:bold; text-transform:capitalize; text-align:center;margin:0px; margin-bottom:5px;}
+.item-product .title-h2:hover{ color:#ff0000;}
+.item-product .img{ width:100%; display:block;position:relative; overflow:hidden;}
+.item-product .img:hover img{-webkit-transform: translate3d(0,0,0) scale(1.1);transform: translate3d(0,0,0) scale(1.1);}
+.price{ color:#ff0000;margin-top:8px; font-weight:bold; font-size:15px; text-align:center;}
+.price del{color:#676767;font-weight:normal; font-size:12px;}
+.product-sale-tags {width:40px; height:40px; line-height:40px;
+    position: absolute;
+    top:2px;
+    right:2px;
+    z-index:1;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;font-weight:bold; background-color:#ffbe00;
+	webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.title-new{ width:100%; display:block; background-color:#ffbe00; font-size:18px; font-weight:bold; text-transform:uppercase; border-radius:5px; padding:8px 0 8px 15px; color:#fff;}
+.title-service{ text-align:center; border-radius:0;}
+.title-service a{color:#fff;}
+.title-service a:hover{ opacity:0.7;}
+.title-new .btn-primary{ background-color:transparent; padding-top:3px;}
+.tinright{ width:100%; float:left; margin-top:25px; margin-bottom:5px;}
+.tinright img{max-width:33%; margin-right:15px; float:left; border:solid 1px #dadada;-webkit-transition: all 1s ease;-moz-transition: all 1s ease;-o-transition: all 1s ease;-ms-transition: all 1s ease;transition: all 1s ease;}
+.tinright img:hover{-webkit-filter: grayscale(100%);}
+.tinright .sum{ line-height:1.7;}
+.title_h5{-webkit-box-orient: vertical;/*-webkit-line-clamp: 2;*/;display: -webkit-box;overflow: hidden;font-size:14px;font-weight:normal;}
+.title_h5{color:#676767;text-transform:capitalize;margin-top:0;margin-bottom:15px; font-size:16px; font-weight:bold;}
+.title_h5 a {color:#676767 ;moz-transition: 0.3s;-o-transition: 0.3s; -webkit-transition: 0.3s;transition: 0.3s;}
+.title_h5 a:hover{color:#ffbe00;}
+
+.item_new{ margin:15px 0;}
+.box_new{ width:100%; display:inline-block;border: 1px solid #ededed;box-shadow: -5px 5px 0 #f0f0f0;padding: 6px;background-color: #fff;}
+.item_new img{ max-width:30% !important; float:left; margin-right:20px;}
+.entry-title {font-size:16px;margin-top:0px; margin-bottom:5px;  text-transform:uppercase;overflow: hidden;
+text-overflow: ellipsis;font-weight: bold;}
+.entry-title a {color: #676767;}
+.entry-title a:hover{color:#ffbe00;}
+.entry-date {font-size: 13px;text-transform:lowercase;color:#888888; margin-bottom:10px; font-style:italic;}
+.entry-date .fa{ color:#ff0000; margin-right:5px;}
+.summany{color: #7d7d7d;line-height:1.7;font-size:14px;text-align:justify;}
+
+.duan img{max-width:35% !important;}
+
+
+.noidung{width:100%;display:inline-block;}
+.noidung{text-align:justify;position:relative; padding:15px; background-color:#fff;}
+.noidung img{ max-width:100% !important;height:auto !important;}
+.noidung table{ width:100% !important;}
+.noidung iframe{max-width:100% !important;}
+.noidung h2{ margin:0;font-size: 28px;margin-bottom: 10px;}
+.noidung a{ color:#03a9f4;}
+.title-comment{display:block;}
+.title-comment span{display:inline-block;border-bottom: solid 1px #ff0000;padding-bottom:5px; margin-bottom:15px;
+    color: #676767;font-size: 20px;}
+.relation{list-style: none;margin:0; padding: 0;-webkit-margin-before: 0em;-webkit-margin-after: 0em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;-webkit-padding-start: 0px;}
+.relation li{ width:100% !important; float:left;margin-bottom:10px; font-size:15px; text-transform:capitalize;}
+.relation li h3{ padding:0; margin:0;font-size:16px; font-weight:normal;}
+.relation li a{ color:#12151a;}
+.relation li a:before {padding-right:5px;content: "\f105";font-family: 'FontAwesome';}
+.relation li a:hover{ color:#f2c414;}
+.daily-item{ margin-bottom:30px;}
+.title-daily1{ display:block; font-size:20px; color:#000; text-transform:uppercase; margin-top:10px; margin-bottom:5px;}
+.title-daily2 {display:block;color: #787878;font-size: 15px;}
+.address-daily {display:block;font-size: 14px;margin-top: 5px;}
+.phone-daily{display:block; color:#000;margin-top: 5px;font-size: 15px;}
+.btn-daily{ float:none;
+    text-align: center;
+    color: #000;
+    background-color: #787878;
+    font-size: 18px; padding:10px 50px; margin-top:5px;}
+.showrom ul li{line-height: 22px;
+    margin-bottom: 7px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 7px;}
+.contact-google-map iframe{width:100% !important;}
+.p{ text-align:center;}
+
+@media (min-width:992px){
+
+}
+@media (min-width:768px){
+.summany{-webkit-line-clamp:5; text-align:justify;}
+.summany-home{-webkit-line-clamp:3;}
+.duan .summany{-webkit-line-clamp:4;}
+}
+@media (min-width:768px) and (max-width:992px){
+}
+@media (min-width:1025px){
+.content-left{ width:22%;}
+.content-right{ width:78%;}
+}
+@media (max-width:992px){
+.summany{-webkit-line-clamp:3;}
+
+}
+@media (min-width:768px) and (max-width:812px){
+.sharefooter .fa{ margin-left:5px;}
+}
+@media (max-width: 768px){
+.wapper-new{ margin-top:0;}
+.noidung{ padding:15px 0;}
+}
+@media (max-width:767px){
+.summany{-webkit-line-clamp:3; font-size:13px; max-height:60px;display: inherit;}
+.title_h5{ margin-bottom:2px;}
+}
+@media (min-width:767px) and (max-width:812px){
+}
+@media (max-width:600px){
+.row{ margin-left:-5px; margin-right:-5px;}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{ padding-left:5px; padding-right:5px;}
+.item-product figcaption{ padding:5px 5px;}
+.item-product .title-h2{ font-size:13px;}
+.btn-primary{ padding:2px 5px; margin-bottom:2px;}
+
+}
+@media (max-width: 480px){
+.btn-group-ul{ position:relative; top:0; float:right; margin-bottom:15px; right:0; top:0; margin-bottom:15px;}
+.item_new img{ max-width:35% !important; margin-right:5px;}
+.entry-title{ font-size:13px;}
+.summany{ width:100%;-webkit-line-clamp:2; font-size:13px; max-height:45px;display:block;}
+.entry-date{ margin-bottom:1px; font-size:12px;}
+.btn-daily{ width:100%; padding:10px 20px; font-size:15px;}
+.title-daily1{ font-size:15px;}
+.title-content{ font-size:16px;}
+}
+@media (max-width: 414px){
+/*.col-xs-6,.col-xs-4{ width:100%;}*/
+
+}
+@media (max-width: 375px){
+}

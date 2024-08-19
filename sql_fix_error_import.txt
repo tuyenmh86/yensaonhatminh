@@ -1,0 +1,8 @@
+set global sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+SET FOREIGN_KEY_CHECKS=0;
+SET @@local.net_read_timeout=360;
+-- ----------------------------
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+SET FOREIGN_KEY_CHECKS=0;

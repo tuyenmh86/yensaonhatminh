@@ -1,0 +1,24 @@
+- Ví tiền của khách: WalletConttroller
+    + Hoa hồng giới thiệu được ghi vào ví
+    + Hoa hồng đã chi trả (đã chuyển khoản cho )
+        -Trừ tiền trong ví khi đã được admin thanh toán
+- HIển thị ví:
+    + ID, user_id, amount,Phương thức thanh toán(Hoa hồng), (Chi tiết thanh toán - khóa học, user )
+
+
+****   khi khách đăng ký và kích hoạt hóa đơn thì chưa add product cho khách hàng ở dashboard
+
+OrderControler 113
+chuwa ref ordercontrl
+
+
+TH1:    Người gIới thiệu đăng ký tài khoản
+        -Mua hàng
+
+        - KHông mua hàng: Lưu lại ref_id
+                - Mua thì dựa vào ref_id tính hoa hồng
+
+Th2: Người giới thiệu không đăng ký tài khoản
+    - Mua hàng: đã có cookie
+        -
+    - Không mua hàng: Lưu lại cookie

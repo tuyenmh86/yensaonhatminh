@@ -1,0 +1,29 @@
+/************************ CUSTOM CSS SITE **************************** */
+.mess-err {
+	color: #a94442 !important;
+}
+.required_cl {
+	color: #a94442 !important;
+}
+
+.border-red {
+	border: 1px solid #a94442 !important;
+}
+.updatePos {
+	width: 80px !important;
+}
+.tw-fullscreen-inline {
+    position: fixed!important;
+    top: 0!important;
+    left: 0!important;
+    width: 100%!important;
+    height: 90%!important;
+    max-height: 90%!important;
+    z-index: 999!important;
+    padding: 2%!important;
+    overflow: auto!important;
+}
+
+
+
+
