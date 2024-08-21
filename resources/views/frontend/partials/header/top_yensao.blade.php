@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="topheader_wrap" style="background-color: #f9e25e;">
+    <div class="topheader_wrap bg-yellow-500 text-white">
 		<div class="topbar d-none d-md-block">
 			<div class="container">
 				<div class="row">
@@ -28,7 +28,7 @@
     </div>
     <div class="middle-header">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center md:pl-5">
                 <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12 header-left">
                     <div class="heade_menunavs">
                         <div class="wrap_main">
@@ -500,20 +500,18 @@
   }
 }
 .header .middle-header {
-  padding:20px 0;
   background:#ba1d2d;
   position:relative
 }
 @media (min-width: 1199px) {
   .header .middle-header:after {
-    content:"";
-    background:url("public/img/bg-after-header.webp") no-repeat top center;
-    position:absolute;
-    width:100%;
-    height:47px;
-    bottom:-47px;
-    z-index:9
-    left: -18px;
+    content: "";
+    background: url("public/img/bg-after-header.webp") no-repeat top center;
+    position: absolute;
+    width: 100%;
+    height: 47px;
+    bottom: -47px;
+    left: 0;
   }
 }
 @media (max-width: 767px) {

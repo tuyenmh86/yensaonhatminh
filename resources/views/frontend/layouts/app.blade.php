@@ -35,6 +35,10 @@
 
             <link type="text/css" href="{{ asset('frontend/css/bootstrap-tagsinput.css') }}" rel="stylesheet">
             <link type="text/css" href="{{ asset('frontend/css/sweetalert2.min.css') }}" rel="stylesheet">
+            
+            <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+          
+
             <link type="text/css" href="{{ asset('frontend/js/slick/slick.css') }}" rel="stylesheet">
             <link type="text/css" href="{{ asset('frontend/js/slick/slick-theme.css') }}" rel="stylesheet">
             {{-- <link type="text/css" href="{{ asset('frontend/css/slick.css') }}" rel="stylesheet"> --}}
@@ -45,6 +49,8 @@
             <link type="text/css" href="{{ asset('frontend/css/active-shop.css') }}" rel="stylesheet" media="screen">
             {{-- <link type="text/css" href="{{ asset('frontend/css/header-dd.css') }}" rel="stylesheet" media="screen"> --}}
 
+            <script src="https://unpkg.com/tailwindcss-cdn@3.4.3/tailwindcss.js"></script>   
+            <script src="frontend/js/tailwing.config.js"></script>   
             <!--Spectrum Stylesheet [ REQUIRED ]-->
             <link href="{{ asset('css/spectrum.css')}}" rel="stylesheet">
             <link href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css" rel="stylesheet">
@@ -115,7 +121,7 @@
             {{-- @include('frontend.partials.header.top_header') --}}
             @include('frontend.partials.header.top_yensao')
 
-            @include('frontend.partials.header.main_nav')
+            {{-- @include('frontend.partials.header.main_nav') --}}
             @include('frontend.partials.header.menu_mobile')
 
             @yield('content')
@@ -154,6 +160,7 @@
         <a href="#" class="back-to-top btn-back-to-top"></a>
 
         <!-- Core -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="{{ asset('frontend/js/vendor/popper.min.js') }}"></script>
         <script src="{{ asset('frontend/js/vendor/bootstrap.min.js') }}"></script>
 
@@ -169,7 +176,7 @@
 
         <script src="{{ asset('frontend/js/jquery.share.js') }}"></script>
         <script src="{{ asset('frontend/js/jquery.ajaxchimp.js') }}"></script>
-
+       
         <script type="text/javascript">
             function showFrontendAlert(type, message){
                 swal({

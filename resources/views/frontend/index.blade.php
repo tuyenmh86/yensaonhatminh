@@ -3,16 +3,16 @@
 @section('content')
     
 {{-- @include('frontend.partials.slideCarol') --}}
-@include('frontend.partials.body.about')
+@include('frontend.partials.body.slide')
 
 {{-- @include('frontend.partials.body.flashsale') --}}
 @include('frontend.partials.body.danhsachsanpham',['products'=>$products])
 
-@include('frontend.partials.body.thanhtuu')
+{{-- @include('frontend.partials.body.thanhtuu') --}}
 
 {{-- @include('frontend.partials.banner') --}}
 
-@include('frontend.partials.body.nghenhan')
+{{-- @include('frontend.partials.body.nghenhan') --}}
 {{-- @include('frontend.partials.body.sanphamnoibat') --}}
 {{-- @include('frontend.partials.featuredCategory') --}}
 

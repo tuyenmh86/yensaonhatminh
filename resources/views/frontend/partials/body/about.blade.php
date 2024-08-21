@@ -1,23 +1,39 @@
 <div class="section-about mb-4">
     <div class="container">
-        <div class="row align-items-center">
+
+        <div class="row align-items-center sm:p-2 md:p-5">
+          <div class="bird-container bird-container-one">
+            <div class="bird bird-one"></div>
+         </div>        
+         <div class="bird-container bird-container-two">
+           <div class="bird bird-two"></div>
+         </div>  
+          <div class="bird-container bird-container-three">
+            <div class="bird bird-three"></div>
+          </div> 
+          <div class="bird-container bird-container-four">
+            <div class="bird bird-four"></div>
+          </div>
+    
             <div class="col-lg-6 col-md-6 col-12 block-title">
 
-                <div class="about-text-1">
-                    Về chúng tôi
-                </div>
 
-                <h2>
-                    LÀNG NGHỀ CHỔI ĐÓT THẠNH HOÀ
-                </h2>
+                <h1 class="text-amber-400 uppercase text-3xl pt-6">
+                    Yến sào Nhật Minh Anh <br/>
+                 
+                </h1>
 
                 <div class="about-text-2">
-                    Nổ lực – Định hướng – Làng nghề truyền thống – Niềm tự hào 
+                    <span class="italic text-base text-emerald-400 tracking-wide">Cung cấp tổ yến tinh</span>
                 </div>
 
 
-                <div class="about-des">
-                  Chổi là vật dụng quen thuộc mà hầu như gia đình nào cũng có để vệ sinh nhà cửa, sân vườn. Đằng sau những chiếc chổi đót đơn giản ấy là những câu chuyện về nét văn hoá của một làng nghề, vươn lên thoát nghèo bằng nghề ông cha để lại. Theo các cụ cao niên trong làng, nghề làm chổi đã xuất hiện ở Thôn Thạnh Hoà, xã Quế Xuân I, tỉnh Quảng Nam từ lâu và gắn bó máu thịt với bà con nơi này, là một sản phẩm truyền thống nổi tiếng được làm từ đót, một loại cây có sợi dài và bền. Nghề làm chổi đót đã tồn tại từ lâu đời tại Thôn Thạnh Hoà và trở thành một phần quan trọng trong văn hóa cũng như kinh tế của địa phương.
+                <div class="about-des text-white">
+                  "Tài sản lớn nhất của đời người là sức khỏe và trí tuệ", 
+                  có sức khỏe và trí tuệ thì sẽ có tất cả. Sản phẩm yến sào là thực phẩm bổ dưỡng
+                   mang lại cho Quý vị sức khỏe, trí tuệ và sự trẻ trung. Yến sào được thị trường 
+                   đón nhận với phương châm: "Chất lượng uy tín là thương hiệu".
+Sản phẩm yến sào của Yến sào Nhật Minh Anh được khai thác và yến nuôi tổ với chất lượng tuyệt đối... .
                 </div>
 
                 <div class="about-contact-us">
@@ -29,8 +45,8 @@
             <div class="col-lg-6 col-md-6 col-12 block-image">
                 <a class="thumb d-block" href="#" title="Giới thiệu làng nghề làm chổi đót">
                     <img alt="Giới thiệu làng nghề làm chổi đót"
-                        src="{{asset('uploads/gioithieu.webp')}}"
-                        data-src="{{asset('uploads/gioithieu.webp')}}"
+                        src="{{asset('uploads/section_about_product_1.webp')}}"
+                        data-src="{{asset('uploads/section_about_product_1.webp')}}"
                         class="img-responsive w-100 lazyload loaded" data-was-processed="true">
                 </a>
             </div>
@@ -39,7 +55,9 @@
 </div>
 
 <style type="text/css">
-
+.section-about{
+  background:url(//bizweb.dktcdn.net/100/506/650/themes/944598/assets/section_about_bg.jpg?1713533632009) bottom left/cover no-repeat;
+}
     .section-about .block-title .about-text-1 {
   position:relative;
   display:inline-block;
@@ -114,5 +132,154 @@
 .section-about .block-title .about-contact-us .btn-box a:hover:after {
   opacity:1;
   width:100%
+}
+
+.bird{
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
+    filter: invert(0%) sepia(55%) saturate(427%) hue-rotate(141deg) brightness(93%) contrast(91%);
+    background-size: auto 100%;
+    width: 88px;
+    height: 125px;
+    will-change: background-position;
+
+    animation-name: fly-cycle;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+}
+
+.bird-one{
+    animation-duration: 1s;
+    animation-delay: -0.5s;
+
+}
+.bird-two{
+    animation-duration: 0.9;
+    animation-delay: -0.75.s;
+
+}
+.bird-three{
+    animation-duration:1.25s;
+    animation-delay: -0.25s
+
+}
+.bird-four{
+    animation-duration: 1.1s;
+    animation-delay: -0.5s;
+}
+
+.bird-container {
+	position: absolute;
+	top: 10%;
+  left: -3%;
+	transform: scale(0) translateX(-10vw);
+	will-change: transform;
+	
+	animation-name: fly-right-one;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+	
+.bird-container-one{
+	animation-duration: 15s;
+	animation-delay: 0;
+}
+	
+.bird-container-two{
+	animation-duration: 16s;
+	animation-delay: 1s;
+}
+	
+.bird-container-three{
+	animation-duration: 14.6s;
+	animation-delay: 9.5s;
+}
+	
+.bird-container-four {
+		animation-duration: 16s;
+		animation-delay: 10.25s;
+}
+/* @keyframes fly-cycle {
+    100%{
+        background-position: -3600px 0;
+    }
+} */
+@keyframes fly-cycle {
+	
+	100% {
+		background-position: -900px 0;
+	}
+	
+}
+
+@keyframes fly-right-one {
+	
+	0% {
+		transform: scale(0.3) translateX(-10vw);
+	}
+	
+	10% {
+		transform: translateY(2vh) translateX(10vw) scale(0.4);
+	}
+	
+	20% {
+		transform: translateY(0vh) translateX(30vw) scale(0.5);
+	}
+	
+	30% {
+		transform: translateY(4vh) translateX(50vw) scale(0.6);
+	}
+	
+	40% {
+		transform: translateY(2vh) translateX(70vw) scale(0.6);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.6);
+	}
+	
+	60% {
+		transform: translateY(0vh) translateX(110vw) scale(0.6);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.6);
+	}
+	
+}
+
+@keyframes fly-right-two {
+	
+	0% {
+		transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+	}
+	
+	10% {
+		transform: translateY(0vh) translateX(10vw) scale(0.4);
+	}
+	
+	20% {
+		transform: translateY(-4vh) translateX(30vw) scale(0.6);
+	}
+	
+	30% {
+		transform: translateY(1vh) translateX(50vw) scale(0.45);
+	}
+	
+	40% {
+		transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+	}
+	
+	50% {
+		transform: translateY(0vh) translateX(90vw) scale(0.45);
+	}
+	
+	51% {
+		transform: translateY(0vh) translateX(110vw) scale(0.45);
+	}
+	
+	100% {
+		transform: translateY(0vh) translateX(110vw) scale(0.45);
+	}
+	
 }
 </style>

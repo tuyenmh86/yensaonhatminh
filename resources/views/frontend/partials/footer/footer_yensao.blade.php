@@ -1,17 +1,5 @@
 <footer class="footer">
-    <div class="bird-container bird-container-one">
-        <div class="bird bird-one"></div>
-     </div>        
-     <div class="bird-container bird-container-two">
-       <div class="bird bird-two"></div>
-     </div>  
-      <div class="bird-container bird-container-three">
-        <div class="bird bird-three"></div>
-      </div> 
-      <div class="bird-container bird-container-four">
-        <div class="bird bird-four"></div>
-      </div>
-
+   
     <div class="mid-footer">
         <div class="container">
             <div class="row">
@@ -30,7 +18,7 @@
                                 </svg>
                                 <span>
 
-                                    Thôn Thanh Hà, xã Ia Hrung, Huyện Iagrai, Tỉnh Gia Lai
+                                    {{\App\Generalsetting::first()->address}}
 
                                 </span>
                             </li>
@@ -41,7 +29,7 @@
                                         d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z">
                                     </path>
                                 </svg>
-                                <a title="1900 6750" href="tel:0905946690">0905946690</a>
+                                <a title="{{\App\Generalsetting::first()->name}}" href="tel:{{\App\Generalsetting::first()->phone}}"> {{\App\Generalsetting::first()->phone}}</a>
                             </li>
                         </ul>
                     </div>
@@ -50,7 +38,7 @@
                     </h4>
 
                     <ul class="social">
-                        <li><a href="#" title="Zalo"><img width="32" height="32" title="Zalo" class="lazyload loaded"
+                        <li><a href="https://zalo.me/{{\App\Generalsetting::first()->zalo}}" title="Zalo"><img width="32" height="32" title="Zalo" class="lazyload loaded"
                                     src="{{asset('img/zalo.webp')}}"
                                     data-src="{{asset('img/zalo.webp')}}"
                                     data-was-processed="true"></a></li>
@@ -384,152 +372,5 @@
         }
 
 
-        .bird{
-    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg');
-    filter: invert(0%) sepia(55%) saturate(427%) hue-rotate(141deg) brightness(93%) contrast(91%);
-    background-size: auto 100%;
-    width: 88px;
-    height: 125px;
-    will-change: background-position;
-
-    animation-name: fly-cycle;
-    animation-timing-function: steps(10);
-    animation-iteration-count: infinite;
-}
-
-.bird-one{
-    animation-duration: 1s;
-    animation-delay: -0.5s;
-
-}
-.bird-two{
-    animation-duration: 0.9;
-    animation-delay: -0.75.s;
-
-}
-.bird-three{
-    animation-duration:1.25s;
-    animation-delay: -0.25s
-
-}
-.bird-four{
-    animation-duration: 1.1s;
-    animation-delay: -0.5s;
-}
-
-.bird-container {
-	position: absolute;
-	top: 10%;
-  left: -3%;
-	transform: scale(0) translateX(-10vw);
-	will-change: transform;
-	
-	animation-name: fly-right-one;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-}
-	
-.bird-container-one{
-	animation-duration: 15s;
-	animation-delay: 0;
-}
-	
-.bird-container-two{
-	animation-duration: 16s;
-	animation-delay: 1s;
-}
-	
-.bird-container-three{
-	animation-duration: 14.6s;
-	animation-delay: 9.5s;
-}
-	
-.bird-container-four {
-		animation-duration: 16s;
-		animation-delay: 10.25s;
-}
-/* @keyframes fly-cycle {
-    100%{
-        background-position: -3600px 0;
-    }
-} */
-@keyframes fly-cycle {
-	
-	100% {
-		background-position: -900px 0;
-	}
-	
-}
-
-@keyframes fly-right-one {
-	
-	0% {
-		transform: scale(0.3) translateX(-10vw);
-	}
-	
-	10% {
-		transform: translateY(2vh) translateX(10vw) scale(0.4);
-	}
-	
-	20% {
-		transform: translateY(0vh) translateX(30vw) scale(0.5);
-	}
-	
-	30% {
-		transform: translateY(4vh) translateX(50vw) scale(0.6);
-	}
-	
-	40% {
-		transform: translateY(2vh) translateX(70vw) scale(0.6);
-	}
-	
-	50% {
-		transform: translateY(0vh) translateX(90vw) scale(0.6);
-	}
-	
-	60% {
-		transform: translateY(0vh) translateX(110vw) scale(0.6);
-	}
-	
-	100% {
-		transform: translateY(0vh) translateX(110vw) scale(0.6);
-	}
-	
-}
-
-@keyframes fly-right-two {
-	
-	0% {
-		transform: translateY(-2vh) translateX(-10vw) scale(0.5);
-	}
-	
-	10% {
-		transform: translateY(0vh) translateX(10vw) scale(0.4);
-	}
-	
-	20% {
-		transform: translateY(-4vh) translateX(30vw) scale(0.6);
-	}
-	
-	30% {
-		transform: translateY(1vh) translateX(50vw) scale(0.45);
-	}
-	
-	40% {
-		transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
-	}
-	
-	50% {
-		transform: translateY(0vh) translateX(90vw) scale(0.45);
-	}
-	
-	51% {
-		transform: translateY(0vh) translateX(110vw) scale(0.45);
-	}
-	
-	100% {
-		transform: translateY(0vh) translateX(110vw) scale(0.45);
-	}
-	
-}
+        
 </style>
