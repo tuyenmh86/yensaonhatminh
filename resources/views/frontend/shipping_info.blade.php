@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 @section('content')
 
-    <div id="page-content">
+    <div id="page-content" class="pt-4">
         <section class="slice-xs sct-color-2 border-bottom">
             <div class="container container-sm">
                 <div class="row cols-delimited">

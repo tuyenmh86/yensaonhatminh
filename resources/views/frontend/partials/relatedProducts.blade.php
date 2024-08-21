@@ -5,7 +5,7 @@
                             </h3>
                         </div>
                         <div class="1caorusel-box">
-                            <div class="responsive_slick_2row" data-slick-items="4" data-slick-xl-items="4" data-slick-lg-items="4"  data-slick-md-items="4" data-slick-sm-items="2" data-slick-xs-items="2"  data-slick-rows="1">
+                            <div class="responsive_slick_1row" data-slick-items="4" data-slick-xl-items="4" data-slick-lg-items="4"  data-slick-md-items="4" data-slick-sm-items="2" data-slick-xs-items="2"  data-slick-rows="1">
                                 @foreach (filter_products(\App\Product::where('category_id', $product->category_id)->where('id', '!=', $product->id))->limit(10)->get() as $key => $related_product)
                                    <div class="item-product p-0">
                   {{-- 

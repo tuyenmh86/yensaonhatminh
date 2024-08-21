@@ -35,10 +35,6 @@
 
             <link type="text/css" href="{{ asset('frontend/css/bootstrap-tagsinput.css') }}" rel="stylesheet">
             <link type="text/css" href="{{ asset('frontend/css/sweetalert2.min.css') }}" rel="stylesheet">
-            
-            <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-          
-
             <link type="text/css" href="{{ asset('frontend/js/slick/slick.css') }}" rel="stylesheet">
             <link type="text/css" href="{{ asset('frontend/js/slick/slick-theme.css') }}" rel="stylesheet">
             {{-- <link type="text/css" href="{{ asset('frontend/css/slick.css') }}" rel="stylesheet"> --}}
@@ -47,13 +43,14 @@
 
             <!-- Global style (main) -->
             <link type="text/css" href="{{ asset('frontend/css/active-shop.css') }}" rel="stylesheet" media="screen">
+            <link type="text/css" href="{{ asset('frontend/css/lightslider.min.css') }}" rel="stylesheet" media="screen">
             {{-- <link type="text/css" href="{{ asset('frontend/css/header-dd.css') }}" rel="stylesheet" media="screen"> --}}
 
             <script src="https://unpkg.com/tailwindcss-cdn@3.4.3/tailwindcss.js"></script>   
-            <script src="frontend/js/tailwing.config.js"></script>   
+            <script src="{{asset('frontend/js/tailwing.config.js')}}"></script>   
             <!--Spectrum Stylesheet [ REQUIRED ]-->
             <link href="{{ asset('css/spectrum.css')}}" rel="stylesheet">
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css" rel="stylesheet">
+           
             <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.5/dist/fancybox.css" rel="stylesheet">
 
             <!-- Custom style -->

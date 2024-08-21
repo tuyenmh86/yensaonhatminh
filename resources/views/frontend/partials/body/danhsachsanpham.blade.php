@@ -2,12 +2,12 @@
     <div class="container">
             <div class="title">
                 <h2 class="title-module">
-                    <span class="dot"></span> <a href="{{route('san-pham-choi-dot')}}" title="sản phẩm làng nghề chổi đót">Sản phẩm chổi đót Thạnh Hoà</a>
+                    <span class="dot"></span> <a href="{{route('products')}}" title="Yến Sào Nhật Minh Anh">Yến Sào Nhật Minh Anh</a>
                 </h2>
             </div>
             <div class="flash-deal-box ">
                 <div class="caorusel-box">  
-                    <div class="slick-carousel" data-slick-items="4" data-slick-xl-items="4" data-slick-lg-items="4"  data-slick-md-items="3" data-slick-sm-items="2" data-slick-xs-items="2">
+                    <div class="slick-carousel" data-slick-items="4" data-slick-xl-items="4" data-slick-lg-items="4"  data-slick-md-items="3" data-slick-sm-items="1" data-slick-xs-items="1">
                     @foreach ($products as $key => $product)
                         @if ($product != null)
                             <div class="product-action">

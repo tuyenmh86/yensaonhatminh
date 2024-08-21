@@ -1,43 +1,3 @@
-@extends('frontend.layouts.app')
-
-@section('meta_title'){{ $product->meta_title }}@stop
-
-@section('meta_description'){{ $product->meta_description }}@stop
-
-@section('meta_keywords'){{ $product->tags }}@stop
-
-
-@section('meta')
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="{{ $product->meta_title }}">
-    <meta itemprop="description" content="{{ $product->meta_description }}">
-    <meta itemprop="image" content="{{ asset($product->meta_img) }}">
-
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="@publisher_handle">
-    <meta name="twitter:title" content="{{ $product->meta_title }}">
-    <meta name="twitter:description" content="{{ $product->meta_description }}">
-    <meta name="twitter:creator" content="@author_handle">
-    <meta name="twitter:image" content="{{ asset($product->meta_img) }}">
-    <meta name="twitter:data1" content="{{ single_price($product->unit_price) }}">
-    <meta name="twitter:label1" content="Price">
-
-    <!-- Open Graph data -->
-    <meta property="og:title" content="{{ $product->meta_title }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="{{ route('product', $product->slug) }}" />
-    <meta property="og:image" content="{{ asset($product->meta_img) }}" />
-    <meta property="og:description" content="{{ $product->meta_description }}" />
-    <meta property="og:site_name" content="{{ env('APP_NAME') }}" />
-    <meta property="og:price:amount" content="{{ single_price($product->unit_price) }}" />
-@endsection
-
-@section('content')
-    <!-- SHOP GRID WRAPPER -->
-    @php
-        $sitesetting = \App\GeneralSetting::first();
-    @endphp
     <section class="product-details-area">
         <div class="container">
 
@@ -64,25 +24,11 @@
 
                     <div class="col-lg-6">
                         <!-- Product description -->
-                        <div class="product-description-wrapper p-4">
+                        <div class="product-description-wrapper p-4 rounded border-amber-100">
                             <!-- Product title -->
                             <h2 class="product-title">
                                 {{ __($product->name) }}
                             </h2>
-                            <ul class="breadcrumb">
-                                <li><a href="{{ route('home') }}">{{__('Home')}}</a></li>
-                                {{-- <li><a href="{{ route('categories.all') }}">{{__('All Categories')}}</a></li> --}}
-                                <li class="active"><a href="{{ route('products.category', $product->category_id) }}">{{ $product->category->name }}</a></li>
-                                <li>
-                                @if($product->subcategory_id >0)
-                                <a href="{{ route('products.subcategory', $product->subcategory_id) }}">{{ $product->subcategory->name }}</a></li> 
-                                @endif
-                                @if($product->subsubcategory_id >0)
-
-                                <li class="active"><a href="{{ route('products.subsubcategory', $product->subsubcategory_id) }}">{{ $product->subsubcategory->name }}</a></li>
-                                @endif
-                            </ul>
-
                             <div class="row">
                                 <div class="col-12">
                                     <div class="rating mb-1">
@@ -168,7 +114,8 @@
                                                                         </strong>
                                                                         <span class="piece">/{{ $product->unit }}</span>
                                                                         @else
-                                                                            Liên hệ 
+                                                                            Liên hệ <a href="https://zalo.me/{{ \App\GeneralSetting::first()->zalo }}" class="facebook" target="_blank" data-toggle="tooltip" data-original-title="Facebook">
+                                                <i class="fa fa-facebook"></i>
                                             </a>
                                                                         @endif
                                                                     </div>
@@ -314,26 +261,6 @@
                                 </div>
                             @endif
                            
-                            <div class="block-promotion">
-                                <div class="heading-promo text-lg text-rose-600 bg-red-200 flex underline font-bold p-2">
-                                    <svg height="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path
-                                            d="M152 0H154.2C186.1 0 215.7 16.91 231.9 44.45L256 85.46L280.1 44.45C296.3 16.91 325.9 0 357.8 0H360C408.6 0 448 39.4 448 88C448 102.4 444.5 115.1 438.4 128H480C497.7 128 512 142.3 512 160V224C512 241.7 497.7 256 480 256H32C14.33 256 0 241.7 0 224V160C0 142.3 14.33 128 32 128H73.6C67.46 115.1 64 102.4 64 88C64 39.4 103.4 0 152 0zM190.5 68.78C182.9 55.91 169.1 48 154.2 48H152C129.9 48 112 65.91 112 88C112 110.1 129.9 128 152 128H225.3L190.5 68.78zM360 48H357.8C342.9 48 329.1 55.91 321.5 68.78L286.7 128H360C382.1 128 400 110.1 400 88C400 65.91 382.1 48 360 48V48zM32 288H224V512H80C53.49 512 32 490.5 32 464V288zM288 512V288H480V464C480 490.5 458.5 512 432 512H288z">
-                                        </path>
-                                    </svg>
-                                    Quà tặng dành cho bạn:
-                                </div>
-                                <div class="promo-content">
-
-                                    <ul class="list-decimal p-3">
-                                        <li>Tặng 1 túi giấy xách đi kèm.</li>
-                                        <li><span style="letter-spacing: -0.2px;">1 Hộp đường phèn</span></li>
-                                        <li>Tặng bao lì xì Giáp Thìn 2024.</li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        
                         </div>
                     </div>
                 </div>
@@ -632,24 +559,12 @@
                             </div>
                         </div>
                     </div>
-                  @include('frontend.partials.relatedProducts')
                 </div>
             </div>
         </div>
     </section>
 
-@endsection
 
-@section('style')
-<style>
-   .block-promotion {
-  padding: 8px;
-  border: 1px dashed #B11111;
-  background: #FFF3F3;
-  margin-bottom: 20px;
-}
-</style>
-@endsection
 @section('script')
     <script type="text/javascript">
         $(document).ready(function() {

@@ -279,7 +279,7 @@ class HomeController extends Controller
 
     public function listing(Request $request)
     {
-        $products = filter_products(Product::orderBy('created_at', 'desc'))->paginate(50);
+        $products = filter_products(Product::orderBy('created_at', 'desc')->where('published', 1))->paginate(50);
         return view('frontend.product_listing', compact('products'));
     }
 

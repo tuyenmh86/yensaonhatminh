@@ -3,10 +3,14 @@
 @section('content')
     
 {{-- @include('frontend.partials.slideCarol') --}}
-@include('frontend.partials.body.slide')
 
 {{-- @include('frontend.partials.body.flashsale') --}}
+@include('frontend.partials.body.about_yensao')
 @include('frontend.partials.body.danhsachsanpham',['products'=>$products])
+{{-- @include('frontend.partials.body.product_index',['product'=>$products[1]]) --}}
+@include('frontend.partials.body.whychoose_yensao')
+{{-- @include('frontend.partials.body.whychooseus') --}}
+
 
 {{-- @include('frontend.partials.body.thanhtuu') --}}
 

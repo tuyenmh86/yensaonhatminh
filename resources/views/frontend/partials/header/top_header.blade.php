@@ -204,7 +204,7 @@
 				content:"";
 				width:25px;
 				height:25px;
-				background-image:url("public/img/buttonmenu.webp");
+				background-image:url({{asset('img/buttonmenu.webp')}});
 				background-position:center center;
 				background-repeat:no-repeat;
 				background-size:contain

@@ -26,13 +26,13 @@
 			</div>
 		</div>
     </div>
-    <div class="middle-header">
+    <div class="middle-header z-10 p-1">
         <div class="container">
             <div class="row align-items-center md:pl-5">
                 <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12 header-left">
                     <div class="heade_menunavs">
                         <div class="wrap_main">
-                            <div class="account-max-1024 d-xl-none d-block">
+                            {{-- <div class="account-max-1024 d-xl-none d-block">
 
 
                                 <a href="/account/login">Đăng nhập</a>
@@ -48,7 +48,7 @@
                                             class=""></path>
                                     </svg>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="bg-header-nav " >
                                 <nav class="header-nav">
                                     <ul class="item_big">
@@ -366,9 +366,9 @@
 .nd-header-search form input {
   width:99%;
   margin-bottom:0;
-  height:46px;
-  min-height:46px;
-  line-height:46px;
+  height: 30px;
+  min-height: 30px;
+  line-height: 30px;
   background:transparent;
   outline:none;
   padding:0 50px 0 20px;
@@ -390,8 +390,8 @@
   right:0;
   color:#fff;
   padding:0;
-  height:46px;
-  width:46px;
+  height: 30px;
+  width: 30px;
   top:0;
   border-radius:50%;
   background-color:#ffb416
@@ -524,7 +524,7 @@
 
   display: flex;
   align-items: center;
-  background-image: url('public/img/bg_menu.webp');
+  background-image: url("{{asset('img/bg_menu.webp')}}");
   background-size: contain;
   background-repeat: repeat-x;
   margin: unset;
@@ -539,7 +539,7 @@
   align-items:center;
   justify-content:flex-end;
   height:60px;
-  background-image: url('public/img/bg_menu.webp');
+  background-image: url({{asset('img/bg_menu.webp')}});
   background-size: contain;
   background-repeat: repeat-x;
   margin-left: -22px !important;
@@ -595,8 +595,8 @@
   font-size:10px
 }
 .header .group-account li .icon svg {
-  width:25px;
-  height:25px;
+  width: 18px;
+  height: 18px;
   fill:#fff
 }
 .header .group-account li .icon svg path {
