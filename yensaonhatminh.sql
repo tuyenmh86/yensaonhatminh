@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
- Source Server Version : 50651
+ Source Server Version : 80033
  Source Host           : localhost:3306
- Source Schema         : yensaonhatminh
+ Source Schema         : mekendy
 
  Target Server Type    : MySQL
- Target Server Version : 50651
+ Target Server Version : 80033
  File Encoding         : 65001
 
- Date: 21/08/2024 15:36:13
+ Date: 22/08/2024 08:21:20
 */
 
 SET NAMES utf8mb4;
@@ -22,16 +22,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `affilicates`;
 CREATE TABLE `affilicates`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `affiliate_id` int(11) NOT NULL,
-  `product_id` int(11) NULL DEFAULT NULL,
-  `award` int(11) NULL DEFAULT NULL,
-  `status` tinyint(4) NULL DEFAULT NULL,
-  `order_id` int(11) NULL DEFAULT NULL,
+  `id` int unsigned NOT NULL,
+  `affiliate_id` int(0) NOT NULL,
+  `product_id` int(0) NULL DEFAULT NULL,
+  `award` int(0) NULL DEFAULT NULL,
+  `status` tinyint(0) NULL DEFAULT NULL,
+  `order_id` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of affilicates
@@ -45,15 +45,15 @@ INSERT INTO `affilicates` VALUES (12, 13, 131, 100000, 0, 95, '2020-04-21 15:03:
 -- ----------------------------
 DROP TABLE IF EXISTS `banners`;
 CREATE TABLE `banners`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `url` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `position` int(11) NOT NULL DEFAULT 1,
-  `published` int(11) NOT NULL DEFAULT 0,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `photo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `url` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `position` int(0) NOT NULL DEFAULT 1,
+  `published` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of banners
@@ -69,32 +69,32 @@ INSERT INTO `banners` VALUES (12, 'uploads/banners/XQNOoJVjD7kiB4pbxFKLtTQjvzaYH
 -- ----------------------------
 DROP TABLE IF EXISTS `brands`;
 CREATE TABLE `brands`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `logo` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `top` int(11) NOT NULL DEFAULT 0,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `logo` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `top` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of brands
 -- ----------------------------
-INSERT INTO `brands` VALUES (18, 'Thạnh Hoà', 'uploads/brands/DuyjGhqA9gEqdWnvnNfw5pcUxNnaUoc93xNCFQbW.png', 0, '2020-11-08 04:24:39', '2024-08-05 18:11:21');
+INSERT INTO `brands` VALUES (18, 'Nhật Minh Anh', 'uploads/brands/2R8X3KpD1tVir1qRj4iZOSqa0MjDcVNJTZM0q1Hi.webp', 0, '2020-11-08 04:24:39', '2024-08-21 16:59:03');
 
 -- ----------------------------
 -- Table structure for business_settings
 -- ----------------------------
 DROP TABLE IF EXISTS `business_settings`;
 CREATE TABLE `business_settings`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `value` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `type` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `value` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of business_settings
@@ -138,20 +138,20 @@ INSERT INTO `business_settings` VALUES (44, 'vnp_HashSecret', 'LDVOQXHVGUYDIYGGX
 -- ----------------------------
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `parent_id` int(11) NULL DEFAULT NULL,
-  `brands` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `banner` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `icon` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `featured` int(11) NOT NULL DEFAULT 0,
-  `top` int(11) NOT NULL DEFAULT 0,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `parent_id` int(0) NULL DEFAULT NULL,
+  `brands` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `banner` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `icon` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `featured` int(0) NOT NULL DEFAULT 0,
+  `top` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP(0),
-  `slug` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `published` int(11) NULL DEFAULT 1,
+  `updated_at` timestamp(0) NOT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `slug` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `published` int(0) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of categories
@@ -178,23 +178,24 @@ INSERT INTO `categories` VALUES (91, 'Kỷ niệm chương', NULL, 'null', 'uplo
 INSERT INTO `categories` VALUES (92, 'Cúp vinh danh', NULL, 'null', NULL, NULL, 0, 0, '2024-08-06 01:11:33', '2024-08-05 18:11:33', 'cup-vinh-danh-544', 0);
 INSERT INTO `categories` VALUES (93, 'Huy chương - Cờ', NULL, 'null', NULL, NULL, 0, 0, '2024-08-06 01:11:31', '2024-08-05 18:11:31', 'huy-chuong---co-651', 0);
 INSERT INTO `categories` VALUES (94, 'Quà để bàn', NULL, 'null', NULL, NULL, 0, 0, '2024-08-06 01:11:31', '2024-08-05 18:11:31', 'qua-de-ban-436', 0);
-INSERT INTO `categories` VALUES (95, 'Chổi đót', NULL, '[\"18\"]', NULL, 'uploads/categories/icon/xJ2ywJZQdBcUGMcSbRIMi7eUVL9njiXgxUkkDic0.png', 0, 0, '2024-08-05 18:12:02', '2024-08-05 18:12:02', 'choi-dot-363', 1);
+INSERT INTO `categories` VALUES (95, 'Chổi đót', NULL, '[\"18\"]', NULL, 'uploads/categories/icon/xJ2ywJZQdBcUGMcSbRIMi7eUVL9njiXgxUkkDic0.png', 0, 0, '2024-08-21 23:59:34', '2024-08-21 16:59:34', 'choi-dot-363', 0);
+INSERT INTO `categories` VALUES (96, 'Yến Sào', NULL, '[\"18\"]', NULL, 'uploads/categories/icon/j0oLPbNz3O0HDdvgitp43cxi8sLh5jqoXVaoF2ni.webp', 0, 0, '2024-08-21 23:59:44', '2024-08-21 16:59:44', 'yen-sao-608', 1);
 
 -- ----------------------------
 -- Table structure for categories_posts
 -- ----------------------------
 DROP TABLE IF EXISTS `categories_posts`;
 CREATE TABLE `categories_posts`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `alias` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `folder` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `parent_id` int(11) NULL DEFAULT NULL,
+  `parent_id` int(0) NULL DEFAULT NULL,
   `published` tinyint(1) NOT NULL DEFAULT 0,
   `featured` tinyint(1) NOT NULL DEFAULT 0,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
-  `pos` int(11) NULL DEFAULT NULL,
+  `pos` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `icon` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -203,7 +204,7 @@ CREATE TABLE `categories_posts`  (
   `headmenu` tinyint(1) NULL DEFAULT NULL,
   `product_category_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of categories_posts
@@ -219,13 +220,13 @@ INSERT INTO `categories_posts` VALUES (25, 'khuyến mãi', 'khuyen-mai', '/stor
 -- ----------------------------
 DROP TABLE IF EXISTS `category_images`;
 CREATE TABLE `category_images`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) NOT NULL,
-  `image` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `category_id` int(0) NOT NULL,
+  `image` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 961 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 961 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category_images
@@ -723,13 +724,13 @@ INSERT INTO `category_images` VALUES (960, 17, 'uploads/categorypost/cong-cua-sa
 -- ----------------------------
 DROP TABLE IF EXISTS `colors`;
 CREATE TABLE `colors`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `code` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `code` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 144 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 144 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of colors
@@ -883,20 +884,20 @@ INSERT INTO `colors` VALUES (143, 'Black', '#000000', '2018-11-10 19:12:30', '20
 -- ----------------------------
 DROP TABLE IF EXISTS `commissions`;
 CREATE TABLE `commissions`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NULL DEFAULT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NULL DEFAULT NULL,
   `email_active` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `product_id` int(11) NULL DEFAULT NULL,
+  `product_id` int(0) NULL DEFAULT NULL,
   `active_date` datetime(0) NULL DEFAULT NULL,
   `commission` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `commission_amount` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `status` int(11) NULL DEFAULT NULL,
+  `status` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `order_code` mediumtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `ref_id` int(11) NULL DEFAULT NULL,
+  `ref_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of commissions
@@ -909,7 +910,7 @@ INSERT INTO `commissions` VALUES (128, 62, 'f2@gmail.com', 152, '2020-06-17 14:0
 -- ----------------------------
 DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `phone` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -919,7 +920,7 @@ CREATE TABLE `contacts`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of contacts
@@ -934,11 +935,11 @@ INSERT INTO `contacts` VALUES (4, 'Tuyên Nas', 'tuyenmai@gmail.com', '098812345
 -- ----------------------------
 DROP TABLE IF EXISTS `countries`;
 CREATE TABLE `countries`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `code` varchar(2) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '',
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 297 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 297 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of countries
@@ -1245,13 +1246,13 @@ INSERT INTO `countries` VALUES (296, 'CK', 'Cook Islands');
 -- ----------------------------
 DROP TABLE IF EXISTS `coupon_usages`;
 CREATE TABLE `coupon_usages`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `coupon_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `coupon_id` int(0) NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of coupon_usages
@@ -1263,18 +1264,18 @@ INSERT INTO `coupon_usages` VALUES (1, 4, 1, '2019-10-08 21:41:40', '2019-10-08 
 -- ----------------------------
 DROP TABLE IF EXISTS `coupons`;
 CREATE TABLE `coupons`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `details` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `details` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `discount` double(8, 2) NOT NULL,
-  `discount_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `start_date` int(11) NOT NULL,
-  `end_date` int(11) NOT NULL,
+  `discount_type` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `start_date` int(0) NOT NULL,
+  `end_date` int(0) NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of coupons
@@ -1286,16 +1287,16 @@ INSERT INTO `coupons` VALUES (1, 'product_base', '2212', '[{\"category_id\":\"1\
 -- ----------------------------
 DROP TABLE IF EXISTS `currencies`;
 CREATE TABLE `currencies`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `symbol` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `symbol` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `exchange_rate` double(10, 5) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
-  `code` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `status` int(0) NOT NULL DEFAULT 0,
+  `code` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of currencies
@@ -1330,13 +1331,13 @@ INSERT INTO `currencies` VALUES (27, 'Viet Nam Dong', 'đ', 23275.02000, 1, 'VN�
 -- ----------------------------
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `ref_id` int(11) NULL DEFAULT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `ref_id` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of customers
@@ -1360,16 +1361,16 @@ INSERT INTO `customers` VALUES (31, 64, NULL, '2020-11-11 13:31:48', '2020-11-11
 -- ----------------------------
 DROP TABLE IF EXISTS `districts`;
 CREATE TABLE `districts`  (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` bigint unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `gso_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `province_id` bigint(20) UNSIGNED NOT NULL,
+  `province_id` bigint unsigned NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `districts_province_id_foreign`(`province_id`) USING BTREE,
   CONSTRAINT `districts_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 703 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 703 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of districts
@@ -2082,15 +2083,15 @@ INSERT INTO `districts` VALUES (702, 'Huyện Ngọc Hiển', '973', 63, '2020-1
 -- ----------------------------
 DROP TABLE IF EXISTS `flash_deal_products`;
 CREATE TABLE `flash_deal_products`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `flash_deal_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `flash_deal_id` int(0) NOT NULL,
+  `product_id` int(0) NOT NULL,
   `discount` double(8, 2) NULL DEFAULT 0.00,
-  `discount_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `discount_type` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of flash_deal_products
@@ -2106,15 +2107,15 @@ INSERT INTO `flash_deal_products` VALUES (29, 3, 292, 10.00, 'percent', '2024-08
 -- ----------------------------
 DROP TABLE IF EXISTS `flash_deals`;
 CREATE TABLE `flash_deals`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `start_date` int(11) NULL DEFAULT NULL,
-  `end_date` int(11) NULL DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `start_date` int(0) NULL DEFAULT NULL,
+  `end_date` int(0) NULL DEFAULT NULL,
+  `status` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of flash_deals
@@ -2126,49 +2127,49 @@ INSERT INTO `flash_deals` VALUES (3, 'Chương trình khuyến mãi tháng 8', 1
 -- ----------------------------
 DROP TABLE IF EXISTS `general_settings`;
 CREATE TABLE `general_settings`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `frontend_color` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
-  `logo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `admin_logo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `admin_login_background` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `admin_login_sidebar` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `favicon` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `site_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `site_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `address` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `facebook` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `instagram` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `twitter` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `youtube` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `google_plus` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `frontend_color` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'default',
+  `logo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `admin_logo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `admin_login_background` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `admin_login_sidebar` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `favicon` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `site_url` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `site_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `address` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `description` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `phone` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `facebook` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `instagram` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `twitter` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `youtube` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `google_plus` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `zalo` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `zalo` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of general_settings
 -- ----------------------------
-INSERT INTO `general_settings` VALUES (1, '2', 'uploads/logo/TJl5fp6KqgXEe6Gwr5GWUyFVqDLqSM2tvsuDUkHb.webp', 'uploads/admin_logo/rOFxJ4q9TI1Sb6WICrF5GVQUCprH6TxliunypoGL.webp', 'uploads/admin_login_background/9kYzT0cjoObzy1DhUv4WDAhsfpEE5R66rCykTvgL.jpeg', NULL, 'uploads/favicon/oD41dLLRMPXaqzZTaj1qs0ow4Zo0wGdUkehwg4Y3.webp', 'yensaonhatminh.com', 'Yến Sào Nhật Minh', 'Thôn Thanh Hà, xã Iahrung, Huyện Iagrai, Gia Lai, Việt Nam', 'Yến Sào Nhật Minh Anh - Quà tặng quý giá đến từ thiên nhiên', '0325605777', 'yensaonhatminh@gmail.com', 'https://www.facebook.com', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.youtube.com', 'https://www.googleplus.com', '2024-08-21 09:20:21', '2024-08-21 02:20:21', '0865732563');
+INSERT INTO `general_settings` VALUES (1, '2', 'uploads/logo/xEIQddC96YpZ4WPuBFukmZmr0QCvKLDf3CWnJQfk.webp', 'uploads/admin_logo/BLo6QWDDnfSWVOg8uxVx083Aw29aQUnQBzGSJON1.png', 'uploads/admin_login_background/9kYzT0cjoObzy1DhUv4WDAhsfpEE5R66rCykTvgL.jpeg', NULL, 'uploads/favicon/Tnm2QNLsfuHehhaQb4X3VgnN0BnCvJib1PAZBPjo.png', 'yensaonhatminh.com', 'Yến Sào Nhật Minh', 'yensaonhatminh.com', 'Yến Sào Nhật Minh Anh - Quà tặng quý giá từ thiên nhiên', '0325605777', 'yensaonhatminh@gmail.com', 'https://www.facebook.com/yensaonhatminh', 'https://www.instagram.com', 'https://www.twitter.com', 'https://www.youtube.com', 'https://www.googleplus.com', '2024-08-19 22:50:40', '2024-08-19 15:50:40', '0865732563');
 
 -- ----------------------------
 -- Table structure for home_categories
 -- ----------------------------
 DROP TABLE IF EXISTS `home_categories`;
 CREATE TABLE `home_categories`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) NOT NULL,
-  `subcategories` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `subsubcategories` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `category_id` int(0) NOT NULL,
+  `subcategories` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `subsubcategories` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `status` int(0) NOT NULL DEFAULT 1,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of home_categories
@@ -2181,14 +2182,14 @@ INSERT INTO `home_categories` VALUES (11, 76, NULL, 'null', 1, '2020-11-27 22:32
 -- ----------------------------
 DROP TABLE IF EXISTS `languages`;
 CREATE TABLE `languages`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `code` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `rtl` int(11) NOT NULL DEFAULT 0,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `code` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `rtl` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of languages
@@ -2202,56 +2203,56 @@ INSERT INTO `languages` VALUES (3, 'Arabic', 'sa', 0, '2019-10-07 06:26:05', '20
 -- ----------------------------
 DROP TABLE IF EXISTS `links`;
 CREATE TABLE `links`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `url` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `url` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for menu_items
 -- ----------------------------
 DROP TABLE IF EXISTS `menu_items`;
 CREATE TABLE `menu_items`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `label` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `link` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `parent` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `sort` int(11) NOT NULL DEFAULT 0,
+  `parent` int unsigned NOT NULL,
+  `sort` int(0) NOT NULL DEFAULT 0,
   `class` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `menu` int(10) UNSIGNED NOT NULL,
-  `depth` int(11) NOT NULL DEFAULT 0,
+  `menu` int unsigned NOT NULL,
+  `depth` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `menu_items_menu_foreign`(`menu`) USING BTREE,
   CONSTRAINT `menu_items_menu_foreign` FOREIGN KEY (`menu`) REFERENCES `menus` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for menus
 -- ----------------------------
 DROP TABLE IF EXISTS `menus`;
 CREATE TABLE `menus`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for migrations
 -- ----------------------------
 DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `migration` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
+  `id` int unsigned NOT NULL,
+  `migration` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `batch` int(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -2270,21 +2271,21 @@ INSERT INTO `migrations` VALUES (10, '2020_01_01_000003_create_wards_table', 3);
 -- ----------------------------
 DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE `order_details`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) NOT NULL,
-  `seller_id` int(11) NULL DEFAULT NULL,
-  `product_id` int(11) NOT NULL,
-  `variation` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `order_id` int(0) NOT NULL,
+  `seller_id` int(0) NULL DEFAULT NULL,
+  `product_id` int(0) NOT NULL,
+  `variation` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
   `price` double(8, 2) NULL DEFAULT NULL,
   `tax` double(8, 2) NOT NULL DEFAULT 0.00,
   `shipping_cost` double(8, 2) NOT NULL DEFAULT 0.00,
-  `quantity` int(11) NULL DEFAULT NULL,
-  `payment_status` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'unpaid',
-  `delivery_status` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT 'pending',
+  `quantity` int(0) NULL DEFAULT NULL,
+  `payment_status` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'unpaid',
+  `delivery_status` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT 'pending',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 157 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 157 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_details
@@ -2320,23 +2321,23 @@ INSERT INTO `order_details` VALUES (156, 160, 4, 296, 'Big', 495000.00, 0.00, 0.
 -- ----------------------------
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NULL DEFAULT NULL,
-  `guest_id` int(11) NULL DEFAULT NULL,
-  `shipping_address` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `payment_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `payment_status` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT 'unpaid',
-  `payment_details` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NULL DEFAULT NULL,
+  `guest_id` int(0) NULL DEFAULT NULL,
+  `shipping_address` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `payment_type` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `payment_status` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT 'unpaid',
+  `payment_details` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
   `grand_total` double(8, 2) NULL DEFAULT NULL,
   `coupon_discount` double(8, 2) NOT NULL DEFAULT 0.00,
-  `code` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `date` int(11) NOT NULL,
-  `viewed` int(11) NOT NULL DEFAULT 0,
+  `code` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `date` int(0) NOT NULL,
+  `viewed` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ref_id` int(11) NULL DEFAULT NULL,
+  `ref_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 161 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 161 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
@@ -2368,7 +2369,7 @@ INSERT INTO `orders` VALUES (160, NULL, 194364, '{\"name\":\"HO\\u00c0NG QU\\u00
 -- ----------------------------
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `alias` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
@@ -2376,13 +2377,13 @@ CREATE TABLE `pages`  (
   `seo_title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `seo_keywords` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `seo_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `admin_id` int(10) UNSIGNED NULL DEFAULT NULL,
+  `admin_id` int unsigned NULL,
   `featured_image` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `view` int(11) NOT NULL DEFAULT 0,
+  `view` int(0) NOT NULL DEFAULT 0,
   `published` tinyint(1) NOT NULL DEFAULT 0,
   `featured` tinyint(1) NOT NULL DEFAULT 0,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
-  `pos` int(11) NULL DEFAULT NULL,
+  `pos` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `style` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
@@ -2391,7 +2392,7 @@ CREATE TABLE `pages`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `pages_admin_id_index`(`admin_id`) USING BTREE,
   CONSTRAINT `pages_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pages
@@ -2410,39 +2411,39 @@ INSERT INTO `pages` VALUES (11, 'Chính sách giao hàng', 'chinh-sach-giao-hang
 -- ----------------------------
 DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE `password_resets`  (
-  `email` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `token` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `token` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   INDEX `password_resets_email_index`(`email`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for payments
 -- ----------------------------
 DROP TABLE IF EXISTS `payments`;
 CREATE TABLE `payments`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `seller_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `seller_id` int(0) NOT NULL,
   `amount` double(8, 2) NOT NULL DEFAULT 0.00,
-  `payment_details` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `payment_method` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `payment_details` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `payment_method` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for policies
 -- ----------------------------
 DROP TABLE IF EXISTS `policies`;
 CREATE TABLE `policies`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(35) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(35) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of policies
@@ -2458,8 +2459,8 @@ INSERT INTO `policies` VALUES (6, 'privacy_policy', '<p><br></p><p>Chính sách 
 -- ----------------------------
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `category_id` int(10) UNSIGNED NOT NULL,
+  `id` int unsigned NOT NULL,
+  `category_id` int unsigned NOT NULL,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `alias` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
@@ -2468,19 +2469,19 @@ CREATE TABLE `posts`  (
   `meta_keywords` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `meta_description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `featured_img` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `view` int(11) NOT NULL DEFAULT 0,
-  `user_id` int(10) UNSIGNED NULL DEFAULT NULL,
+  `view` int(0) NOT NULL DEFAULT 0,
+  `user_id` int unsigned NULL,
   `published` tinyint(1) NULL DEFAULT 0,
   `featured` tinyint(1) NULL DEFAULT 0,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
-  `pos` int(11) NULL DEFAULT NULL,
+  `pos` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `tags` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `slug` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `code` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of posts
@@ -2499,23 +2500,23 @@ INSERT INTO `posts` VALUES (67, 23, 'Dự án 4', 'top-20-mau-den-trang-tri-phon
 -- ----------------------------
 DROP TABLE IF EXISTS `product_lessons`;
 CREATE TABLE `product_lessons`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `product_id` int(11) NOT NULL,
-  `session_id` int(11) NULL DEFAULT NULL,
-  `duration` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
-  `youtube` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
-  `video_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `attack` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `sumary` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `content` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `featured` int(11) NULL DEFAULT NULL,
-  `pos` int(11) NULL DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `product_id` int(0) NOT NULL,
+  `session_id` int(0) NULL DEFAULT NULL,
+  `duration` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
+  `youtube` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
+  `video_url` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `attack` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `sumary` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `content` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `featured` int(0) NULL DEFAULT NULL,
+  `pos` int(0) NULL DEFAULT NULL,
+  `status` int(0) NOT NULL DEFAULT 1,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product_lessons
@@ -2531,15 +2532,15 @@ INSERT INTO `product_lessons` VALUES (28, 'BÀI 5: NẮM RÕ VỀ CÁC LOẠI CH
 -- ----------------------------
 DROP TABLE IF EXISTS `product_sessions`;
 CREATE TABLE `product_sessions`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `pos` int(11) NULL DEFAULT NULL,
-  `description` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `product_id` int(0) NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `pos` int(0) NULL DEFAULT NULL,
+  `description` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product_sessions
@@ -2554,63 +2555,63 @@ INSERT INTO `product_sessions` VALUES (24, 152, 'CHƯƠNG 1: KIẾN THỨC CẦN
 -- ----------------------------
 DROP TABLE IF EXISTS `product_stocks`;
 CREATE TABLE `product_stocks`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `stocks` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `product_id` int(0) NOT NULL,
+  `stocks` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for products
 -- ----------------------------
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `added_by` varchar(6) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'admin',
-  `user_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `subcategory_id` int(11) NULL DEFAULT NULL,
-  `subsubcategory_id` int(11) NULL DEFAULT NULL,
-  `brand_id` int(11) NULL DEFAULT NULL,
-  `photos` varchar(2000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `thumbnail_img` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `featured_img` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `flash_deal_img` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `video_provider` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `video_link` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `tags` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `added_by` varchar(6) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'admin',
+  `user_id` int(0) NOT NULL,
+  `category_id` int(0) NOT NULL,
+  `subcategory_id` int(0) NULL DEFAULT NULL,
+  `subsubcategory_id` int(0) NULL DEFAULT NULL,
+  `brand_id` int(0) NULL DEFAULT NULL,
+  `photos` varchar(2000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `thumbnail_img` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `featured_img` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `flash_deal_img` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `video_provider` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `video_link` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `tags` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `description` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
   `unit_price` double(10, 2) NOT NULL,
   `purchase_price` double(10, 2) NOT NULL,
-  `choice_options` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `colors` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `variations` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `todays_deal` int(11) NOT NULL DEFAULT 0,
-  `published` int(11) NOT NULL DEFAULT 1,
-  `featured` int(11) NOT NULL DEFAULT 0,
-  `current_stock` int(11) NOT NULL DEFAULT 0,
-  `unit` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `choice_options` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `colors` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `variations` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `todays_deal` int(0) NOT NULL DEFAULT 0,
+  `published` int(0) NOT NULL DEFAULT 1,
+  `featured` int(0) NOT NULL DEFAULT 0,
+  `current_stock` int(0) NOT NULL DEFAULT 0,
+  `unit` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `discount` double(8, 2) NULL DEFAULT NULL,
-  `discount_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `discount_type` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `tax` double(8, 2) NULL DEFAULT NULL,
-  `tax_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `shipping_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'flat_rate',
+  `tax_type` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `shipping_type` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'flat_rate',
   `shipping_cost` double(8, 2) NULL DEFAULT 0.00,
-  `num_of_sale` int(11) NOT NULL DEFAULT 0,
-  `meta_title` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `meta_description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `meta_img` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `pdf` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `slug` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `num_of_sale` int(0) NOT NULL DEFAULT 0,
+  `meta_title` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `meta_description` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `meta_img` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `pdf` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `slug` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `rating` double(8, 2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `quantity` int(10) UNSIGNED NULL DEFAULT NULL,
+  `quantity` int unsigned NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 326 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 326 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of products
@@ -2666,22 +2667,25 @@ INSERT INTO `products` VALUES (319, 'Chặn giấy pha lê', 'admin', 4, 94, NUL
 INSERT INTO `products` VALUES (320, 'HUY CHƯƠNG CAO CẤP 01', 'admin', 4, 93, NULL, NULL, NULL, '[\"uploads\\/products\\/thumbnail\\/3bba2a5deccffff6393c52366902084e.jpg_720x720q80.jpg_.webp\",\"uploads\\/products\\/thumbnail\\/920073d65316948d4bfbcdec0896b2d8.jpg_720x720q80.jpg_.webp\"]', 'uploads/products/thumbnail/920073d65316948d4bfbcdec0896b2d8.jpg_720x720q80.jpg_.webp', 'uploads/products/featured/920073d65316948d4bfbcdec0896b2d8.jpg_720x720q80.jpg_.webp', 'uploads/products/featured/920073d65316948d4bfbcdec0896b2d8.jpg_720x720q80.jpg_.webp', 'youtube', NULL, 'Huy chương ,mẫu huy chương,Huy chương bóng đá', '<p><strong>Huy chương&nbsp;kim loại in nội dung theo y&ecirc;u cầu 2 mặt</strong></p>\r\n<p><em><strong>Huy chương</strong></em> cao cấp 01 kim loại&nbsp;nền nh&aacute;m v&agrave;ng, bạc, đồng.&nbsp;&nbsp;</p>\r\n<p>- Chất liệu: hợp kim mạ v&agrave;ng, bạc, đồng. In theo y&ecirc;u cầu phổ biến như c&aacute;c logo, t&ecirc;n giải thể dục thể thao.</p>\r\n<p>- Đường k&iacute;nh: 6.5cm</p>', 0.00, 0.00, '[]', '[]', '[]', 0, 0, 0, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, NULL, NULL, NULL, NULL, 'huy-chuong-cao-cap-01-541', 0.00, '2024-06-29 13:37:58', '2024-08-05 18:17:36', NULL);
 INSERT INTO `products` VALUES (321, 'Kỷ niệm chương pha lê điểm xanh tôn vinh', 'admin', 4, 91, NULL, NULL, NULL, '[\"uploads\\/products\\/thumbnail\\/ky-niem-chuong-de-go-27.jpg\"]', 'uploads/products/thumbnail/ky-niem-chuong-de-go-27.jpg', 'uploads/products/featured/ky-niem-chuong-de-go-27.jpg', 'uploads/products/featured/ky-niem-chuong-de-go-27.jpg', 'youtube', NULL, 'tôn vinh,vinh danh,kỷ niệm chương', '<p>Kỷ niệm chương pha l&ecirc; điểm xanh t&ocirc;n vinh, kỷ niệm chương t&ocirc;n vinh cao cấp, qu&agrave; tặng vinh danh được sản xuất từ pha l&ecirc; trong. Qu&agrave; tặng pha l&ecirc; n&agrave;y kết hợp th&ecirc;m một số m&agrave;u kh&aacute;c để sản phậm được đẹp hơn. Nội dung theo y&ecirc;u cầu ri&ecirc;ng.<br />Kỷ niệm chương pha l&ecirc; điểm xanh t&ocirc;n vinh c&oacute; thể sản xuất k&iacute;ch theo y&ecirc;u cầu. Sản phẩm đẹp, gi&aacute; cạnh tranh, giao h&agrave;ng nhanh.</p>\r\n<ul>\r\n<li>Chất liệu: pha l&ecirc;<br />- Nội dung: ri&ecirc;ng<br />- KT chuẩn: Cao 20cm<br />- Ph&ugrave; hợp: vinh danh hay tri &acirc;n</li>\r\n</ul>\r\n<p>Gi&aacute; lu&ocirc;n l&agrave; thế mạnh, kinh nghiệm lu&ocirc;n l&agrave;m cho sản phẩm đẹp, tinh tế.</p>\r\n<p>Xưởng sản xuất Kỷ niệm chương của C&ocirc;ng ty TNHH SXTM Song Ngưu thiết kế, sản xuất trực tiếp c&aacute;c loại sản phẩm: Kỷ niệm chương thủy tinh, C&uacute;p pha l&ecirc; gi&aacute; rẻ, Kỷ niệm chương gỗ đồng hay bảng vinh danh.</p>\r\n<p>Ch&uacute;ng t&ocirc;i cam kết chất lượng như thỏa thuận, thời gian v&agrave; gi&aacute; th&agrave;nh. Khi c&oacute; nhu cầu, kh&aacute;ch h&agrave;ng chỉ cần gửi nội dung, số lượng cần đặt v&agrave; thời gian muốn nhận h&agrave;ng về</p>', 0.00, 0.00, '[]', '[]', '[]', 0, 0, 0, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, NULL, NULL, NULL, NULL, 'ky-niem-chuong-pha-le-diem-xanh-ton-vinh-480', 0.00, '2024-06-29 16:39:19', '2024-08-05 18:17:35', NULL);
 INSERT INTO `products` VALUES (322, 'Kỷ niệm chương đế gỗ 25', 'admin', 4, 91, 151, NULL, NULL, '[\"uploads\\/products\\/thumbnail\\/ky-niem-chuong-de-go-25.jpg\"]', 'uploads/products/thumbnail/ky-niem-chuong-de-go-25.jpg', 'uploads/products/featured/ky-niem-chuong-de-go-25.jpg', 'uploads/products/featured/ky-niem-chuong-de-go-25.jpg', 'youtube', NULL, 'kỷ niệm chương pha lê', '<p>Kỷ niệm chương đế gỗ l&agrave; phần thưởng xứng đ&aacute;ng d&agrave;nh tặng cho những nỗ lực, cống hiến đ&oacute;ng g&oacute;p cho sự ph&aacute;t triển chung của doanh nghiệp, c&ocirc;ng ty, đo&agrave;n thể.... L&agrave; m&oacute;n qu&agrave; kh&iacute;ch lệ tinh thần, hiện vật gi&aacute; trị ghi nhớ khoảnh khắc tuyệt vời.</p>\r\n<p><strong>Ưu điểm vượt trội của <a href=\"https://quatangducdat.com/knc-pl\" target=\"_blank\" rel=\"noopener\">kỷ niệm chương</a> đế gỗ:</strong></p>\r\n<p>- Được l&agrave;m từ chất liệu pha l&ecirc; cao cấp lấp l&aacute;nh, tặng phẩm mang trong m&igrave;nh sự tinh tế, sang trọng v&agrave; bền đẹp. Tượng trưng cho sự tươi mới, trang trọng. Kỷ niệm chương pha l&ecirc; đế gỗ với thiết kế đẹp mắt. L&agrave; m&oacute;n qu&agrave; tặng lưu niệm &yacute; nghĩa, sang trọng t&ocirc;n vinh th&agrave;nh t&iacute;ch đ&aacute;ng nhớ. Ghi nhận đ&oacute;ng g&oacute;p, c&ocirc;ng sức của mỗi người nhận.</p>\r\n<p>- Đa dạng về mẫu m&atilde; v&agrave; thiết kế kh&aacute;c biệt, mỗi một sản phẩm đều mang những th&ocirc;ng điệp &yacute; nghĩa đến với người được tặng. Th&iacute;ch hợp để c&aacute;c doanh nghiệp lựa chọn l&agrave;m qu&agrave; tặng lưu niệm cho người được nhận.</p>\r\n<p>Ch&uacute;ng t&ocirc;i đảm bảo ho&agrave;n to&agrave;n về chất lượng sản phẩm, với chế độ bảo h&agrave;nh l&acirc;u d&agrave;i. Tất cả c&aacute;c loại tặng phẩm của ch&uacute;ng t&ocirc;i đều tu&acirc;n thủ đ&uacute;ng quy c&aacute;ch. Cam kết giao h&agrave;ng đ&uacute;ng hẹn đến kh&aacute;ch h&agrave;ng đối với bất cứ đơn h&agrave;ng n&agrave;o, giao h&agrave;ng đ&uacute;ng hẹn, ch&iacute;nh s&aacute;ch đổi trả thuận lợi.</p>', 0.00, 0.00, '[]', '[]', '[]', 0, 0, 0, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, NULL, NULL, NULL, NULL, 'ky-niem-chuong-de-go-25-662', 0.00, '2024-06-29 16:44:28', '2024-08-05 18:12:15', NULL);
-INSERT INTO `products` VALUES (323, 'Chổi đót cán nhựa', 'admin', 4, 95, NULL, NULL, NULL, '[\"uploads\\/products\\/thumbnail\\/gioithieu.webp\"]', 'uploads/products/thumbnail/gioithieu.webp', 'uploads/products/featured/gioithieu.webp', 'uploads/products/featured/gioithieu.webp', 'youtube', NULL, 'Chổi đót thạnh hoà,chổi đót cán nhựa,chổi đót quế sơn', '<p>Chổi đ&oacute;t qu&eacute;t nh&agrave; c&aacute;n d&agrave;i , loại d&agrave;y v&agrave; đặc biệt&nbsp;</p>\r\n<ul>\r\n<li>B&ocirc;ng cỏ dầy , bền , đẹp v&agrave; kh&ocirc;ng rụng b&ocirc;ng .</li>\r\n<li>B&ocirc;ng cỏ đ&atilde; qua xử l&yacute; ti&ecirc;u chuẩn xuất khẩu , rất d&agrave;y , chắc n&ecirc;n tuổi thọ chuổi rất l&acirc;u (&gt; 6 th&aacute;ng ) thay v&igrave; &lt; 1 th&aacute;ng như chổi th&ocirc;ng thường .</li>\r\n<li>C&aacute;n chổi chắc chắn , tổng c&acirc;n chổi tới 500g</li>\r\n<li>Với tất cả ưu điểm tr&ecirc;n bạn c&oacute; thể dễ d&agrave;ng qu&eacute;t sạch nh&agrave; cửa với c&acirc;y chổi truyền thống kh&ocirc;ng thể thiếu trong gia đ&igrave;nh .</li>\r\n</ul>', 0.00, 0.00, '[]', '[]', '[]', 0, 1, 1, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Chổi đót thạnh hoà', NULL, 'uploads/products/featured/gioithieu.webp', NULL, 'choi-dot-can-nhua-460', 0.00, '2024-08-05 18:17:29', '2024-08-05 18:17:52', NULL);
-INSERT INTO `products` VALUES (324, 'Chổi đót cuốn cước', 'admin', 4, 95, NULL, NULL, 18, '[\"uploads\\/products\\/photos\\/4-1595577093472.webp\"]', 'uploads/products/featured/4-1595577093472.webp', NULL, 'uploads/products/flash_deal/4-1595577093472.webp', 'youtube', NULL, 'Chổi đót thạnh hoà,chổi đót cán nhựa,chổi đót quế sơn', '<p>Chổi đ&oacute;t qu&eacute;t nh&agrave; c&aacute;n d&agrave;i , loại d&agrave;y v&agrave; đặc biệt&nbsp;</p>\r\n<ul>\r\n<li>B&ocirc;ng cỏ dầy , bền , đẹp v&agrave; kh&ocirc;ng rụng b&ocirc;ng .</li>\r\n<li>B&ocirc;ng cỏ đ&atilde; qua xử l&yacute; ti&ecirc;u chuẩn xuất khẩu , rất d&agrave;y , chắc n&ecirc;n tuổi thọ chuổi rất l&acirc;u (&gt; 6 th&aacute;ng ) thay v&igrave; &lt; 1 th&aacute;ng như chổi th&ocirc;ng thường .</li>\r\n<li>C&aacute;n chổi chắc chắn , tổng c&acirc;n chổi tới 500g</li>\r\n<li>Với tất cả ưu điểm tr&ecirc;n bạn c&oacute; thể dễ d&agrave;ng qu&eacute;t sạch nh&agrave; cửa với c&acirc;y chổi truyền thống kh&ocirc;ng thể thiếu trong gia đ&igrave;nh .</li>\r\n</ul>', 0.00, 0.00, '[]', '[]', '[]', 0, 1, 1, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Chổi đót thạnh hoà', NULL, 'uploads/products/featured/gioithieu.webp', NULL, 'choi-dot-cuon-cuoc-556', 0.00, '2024-08-05 18:19:42', '2024-08-05 18:20:19', NULL);
-INSERT INTO `products` VALUES (325, 'Chổi đót cuốn cước', 'admin', 4, 95, NULL, NULL, 18, '[\"uploads\\/products\\/photos\\/4-1595577093472.webp\"]', 'uploads/products/featured/4-1595577093472.webp', NULL, 'uploads/products/flash_deal/4-1595577093472.webp', 'youtube', NULL, 'Chổi đót thạnh hoà,chổi đót cán nhựa,chổi đót quế sơn', '<p>Chổi đ&oacute;t qu&eacute;t nh&agrave; c&aacute;n d&agrave;i , loại d&agrave;y v&agrave; đặc biệt&nbsp;</p>\r\n<ul>\r\n<li>B&ocirc;ng cỏ dầy , bền , đẹp v&agrave; kh&ocirc;ng rụng b&ocirc;ng .</li>\r\n<li>B&ocirc;ng cỏ đ&atilde; qua xử l&yacute; ti&ecirc;u chuẩn xuất khẩu , rất d&agrave;y , chắc n&ecirc;n tuổi thọ chuổi rất l&acirc;u (&gt; 6 th&aacute;ng ) thay v&igrave; &lt; 1 th&aacute;ng như chổi th&ocirc;ng thường .</li>\r\n<li>C&aacute;n chổi chắc chắn , tổng c&acirc;n chổi tới 500g</li>\r\n<li>Với tất cả ưu điểm tr&ecirc;n bạn c&oacute; thể dễ d&agrave;ng qu&eacute;t sạch nh&agrave; cửa với c&acirc;y chổi truyền thống kh&ocirc;ng thể thiếu trong gia đ&igrave;nh .</li>\r\n</ul>', 0.00, 0.00, '[]', '[]', '[]', 0, 1, 1, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Chổi đót thạnh hoà', NULL, 'uploads/products/featured/gioithieu.webp', NULL, 'choi-dot-cuon-cuoc-556-656JNAwY', 0.00, '2024-08-05 18:20:25', '2024-08-05 18:20:25', NULL);
+INSERT INTO `products` VALUES (323, 'Chổi đót cán nhựa', 'admin', 4, 95, NULL, NULL, NULL, '[\"uploads\\/products\\/thumbnail\\/gioithieu.webp\"]', 'uploads/products/thumbnail/gioithieu.webp', 'uploads/products/featured/gioithieu.webp', 'uploads/products/featured/gioithieu.webp', 'youtube', NULL, 'Chổi đót thạnh hoà,chổi đót cán nhựa,chổi đót quế sơn', '<p>Chổi đ&oacute;t qu&eacute;t nh&agrave; c&aacute;n d&agrave;i , loại d&agrave;y v&agrave; đặc biệt&nbsp;</p>\r\n<ul>\r\n<li>B&ocirc;ng cỏ dầy , bền , đẹp v&agrave; kh&ocirc;ng rụng b&ocirc;ng .</li>\r\n<li>B&ocirc;ng cỏ đ&atilde; qua xử l&yacute; ti&ecirc;u chuẩn xuất khẩu , rất d&agrave;y , chắc n&ecirc;n tuổi thọ chuổi rất l&acirc;u (&gt; 6 th&aacute;ng ) thay v&igrave; &lt; 1 th&aacute;ng như chổi th&ocirc;ng thường .</li>\r\n<li>C&aacute;n chổi chắc chắn , tổng c&acirc;n chổi tới 500g</li>\r\n<li>Với tất cả ưu điểm tr&ecirc;n bạn c&oacute; thể dễ d&agrave;ng qu&eacute;t sạch nh&agrave; cửa với c&acirc;y chổi truyền thống kh&ocirc;ng thể thiếu trong gia đ&igrave;nh .</li>\r\n</ul>', 0.00, 0.00, '[]', '[]', '[]', 0, 0, 0, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Chổi đót thạnh hoà', NULL, 'uploads/products/featured/gioithieu.webp', NULL, 'choi-dot-can-nhua-460', 0.00, '2024-08-05 18:17:29', '2024-08-21 17:28:48', NULL);
+INSERT INTO `products` VALUES (324, 'Chổi đót cuốn cước', 'admin', 4, 95, NULL, NULL, 18, '[\"uploads\\/products\\/photos\\/4-1595577093472.webp\"]', 'uploads/products/featured/4-1595577093472.webp', NULL, 'uploads/products/flash_deal/4-1595577093472.webp', 'youtube', NULL, 'Chổi đót thạnh hoà,chổi đót cán nhựa,chổi đót quế sơn', '<p>Chổi đ&oacute;t qu&eacute;t nh&agrave; c&aacute;n d&agrave;i , loại d&agrave;y v&agrave; đặc biệt&nbsp;</p>\r\n<ul>\r\n<li>B&ocirc;ng cỏ dầy , bền , đẹp v&agrave; kh&ocirc;ng rụng b&ocirc;ng .</li>\r\n<li>B&ocirc;ng cỏ đ&atilde; qua xử l&yacute; ti&ecirc;u chuẩn xuất khẩu , rất d&agrave;y , chắc n&ecirc;n tuổi thọ chuổi rất l&acirc;u (&gt; 6 th&aacute;ng ) thay v&igrave; &lt; 1 th&aacute;ng như chổi th&ocirc;ng thường .</li>\r\n<li>C&aacute;n chổi chắc chắn , tổng c&acirc;n chổi tới 500g</li>\r\n<li>Với tất cả ưu điểm tr&ecirc;n bạn c&oacute; thể dễ d&agrave;ng qu&eacute;t sạch nh&agrave; cửa với c&acirc;y chổi truyền thống kh&ocirc;ng thể thiếu trong gia đ&igrave;nh .</li>\r\n</ul>', 0.00, 0.00, '[]', '[]', '[]', 0, 0, 0, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Chổi đót thạnh hoà', NULL, 'uploads/products/featured/gioithieu.webp', NULL, 'choi-dot-cuon-cuoc-556', 0.00, '2024-08-05 18:19:42', '2024-08-21 17:28:45', NULL);
+INSERT INTO `products` VALUES (325, 'Chổi đót cuốn cước', 'admin', 4, 95, NULL, NULL, 18, '[\"uploads\\/products\\/photos\\/4-1595577093472.webp\"]', 'uploads/products/featured/4-1595577093472.webp', NULL, 'uploads/products/flash_deal/4-1595577093472.webp', 'youtube', NULL, 'Chổi đót thạnh hoà,chổi đót cán nhựa,chổi đót quế sơn', '<p>Chổi đ&oacute;t qu&eacute;t nh&agrave; c&aacute;n d&agrave;i , loại d&agrave;y v&agrave; đặc biệt&nbsp;</p>\r\n<ul>\r\n<li>B&ocirc;ng cỏ dầy , bền , đẹp v&agrave; kh&ocirc;ng rụng b&ocirc;ng .</li>\r\n<li>B&ocirc;ng cỏ đ&atilde; qua xử l&yacute; ti&ecirc;u chuẩn xuất khẩu , rất d&agrave;y , chắc n&ecirc;n tuổi thọ chuổi rất l&acirc;u (&gt; 6 th&aacute;ng ) thay v&igrave; &lt; 1 th&aacute;ng như chổi th&ocirc;ng thường .</li>\r\n<li>C&aacute;n chổi chắc chắn , tổng c&acirc;n chổi tới 500g</li>\r\n<li>Với tất cả ưu điểm tr&ecirc;n bạn c&oacute; thể dễ d&agrave;ng qu&eacute;t sạch nh&agrave; cửa với c&acirc;y chổi truyền thống kh&ocirc;ng thể thiếu trong gia đ&igrave;nh .</li>\r\n</ul>', 0.00, 0.00, '[]', '[]', '[]', 0, 0, 0, 0, 'Chiếc', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Chổi đót thạnh hoà', NULL, 'uploads/products/featured/gioithieu.webp', NULL, 'choi-dot-cuon-cuoc-556-656JNAwY', 0.00, '2024-08-05 18:20:25', '2024-08-21 17:28:43', NULL);
+INSERT INTO `products` VALUES (326, 'Tổ yến tinh cao cấp', 'admin', 4, 96, 155, 37, 18, '[\"uploads\\/products\\/thumbnail\\/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg\"]', 'uploads/products/thumbnail/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'youtube', NULL, '', NULL, 2750000.00, 0.00, '[{\"name\":\"choice_0\",\"title\":\"Tr\\u1ecdng l\\u01b0\\u1ee3ng\",\"options\":[\"100g\",\"200g\"]}]', '[]', '{\"100g\":{\"price\":\"2750000\",\"sku\":\"t-100g\",\"discount\":null,\"qty\":\"20\"},\"200g\":{\"price\":\"5000000\",\"sku\":\"t-200g\",\"discount\":null,\"qty\":\"10\"}}', 0, 1, 0, 0, 'gram', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Tổ yến tinh chế cao cấp', 'loại tổ yến đã được làm sạch lông nhưng vẫn còn giữ nguyên hình dáng tổ yến thô đẹp mắt và còn chân yến.\r\n\r\nThực chất, yến rút lông cũng như yến tinh chế, nhưng cao cấp hơn. Tổ yến tinh chế là tổ yến được nhặt sạch lông và tạp chất nhưng nó không còn giữ được hình dạng tổ yến ban đầu. Tổ yến rút lông gần như giữ lại nguyên vẹn hình dáng ban đầu của tổ yến thô. Để làm ra được tổ yến rút lông thì tổ yến được lựa chọn phải là loại cao cấp, đẹp nhất trong nhà yến, ít lông và tạp chất nhất.\r\n\r\nĐặc điểm của yến rút lông nguyên tổ\r\n\r\n- Là dòng sản phẩm cao cấp trong các dòng yến vì để làm ra yến rút lông phải lựa những tổ yến làm bởi con chim già, tổ đẹp, rất ít lông và tạp chất, có độ dai, ngâm không rã trong nước trong thời gian nhất định. Thông thường là những tổ yến thượng hạng được chọn lựa kỹ và số lượng không nhiều nên giá nguyên liệu rất cao.\r\n\r\n- Sơ chế tổ yến bằng phương pháp rút lông đòi hỏi thợ có tay nghề cao, tỉ mỉ, chi phí nhân công cũng cao hơn. Do vậy mà giá thành của yến rút lông có phần đắt đỏ hơn các sản phẩm yến khác.\r\n\r\n- Giá trị dinh dưỡng của tổ yến rút lông được giữ nguyên giữ vì quá trình sơ chế rất hạn chế tiếp xúc với nước mà chỉ thực hiện phun ẩm tổ để dễ làm sạch.\r\n\r\n- Tổ yến rút lông gần như giữ lại nguyên vẹn hình dáng ban đầu của tổ yến thô.', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', NULL, 'to-yen-tinh-cao-cap-183', 0.00, '2024-08-21 17:12:15', '2024-08-21 17:20:21', 30);
+INSERT INTO `products` VALUES (327, 'Tổ yến tinh chế loại 2', 'admin', 4, 96, 155, 36, 18, '[\"uploads\\/products\\/thumbnail\\/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg\"]', 'uploads/products/thumbnail/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'youtube', NULL, 'Tổ yến gia lai,Tổ yến tinh chế', '<div class=\"ba-text-fpt has-height\">\r\n<h2><b><em>Tổ yến tinh chế 1</em><em>&nbsp;</em>c&oacute; ưu điểm g&igrave;?</b></h2>\r\n<ul>\r\n<li><b><em>Tổ yến tinh chế 1&nbsp;</em></b>được l&agrave;m sạch ho&agrave;n to&agrave;n từ thi&ecirc;n nhi&ecirc;n dựa&nbsp;theo quy chuẩn vệ sinh an to&agrave;n thực phẩm c&oacute; đầy đủ chứng nhận của Bộ Y tế.</li>\r\n<li>Yến trưởng th&agrave;nh từ nh&agrave; yến&nbsp;12 năm tuổi, được thả tự nhi&ecirc;n tại v&ugrave;ng đảo Nha Trang &ndash; Kh&aacute;nh H&ograve;a. Sản phẩm c&oacute; thương hiệu lớn cho chất lượng tổ yến tốt nhất cả nước.</li>\r\n<li>D&acirc;y chuyển&nbsp;chế hiện đại, tiệt tr&ugrave;ng. Sản phẩm kh&ocirc;ng c&oacute; chất phụ gia bảo quản, được sấy kh&ocirc; ho&agrave;n to&agrave;n &ndash; bảo đảm đ&uacute;ng khối lượng v&agrave; bảo quản rất l&acirc;u.</li>\r\n<li><b><em>Tổ yến tinh chế 1</em></b><em>&nbsp;</em>c&oacute; thể được chia nhỏ để sử dụng, phần c&ograve;n lại c&oacute; thể bảo quản nơi kh&ocirc; r&aacute;o hoặc trong tủ lạnh. Ch&iacute;nh v&igrave; vậy, sản phẩm tổ yến kh&ocirc;ng c&ograve;n qu&aacute; &ldquo;đắt đỏ&rdquo; như trước đ&acirc;y m&agrave; ph&ugrave; hợp với nhiều điều kiện kinh tế hơn.</li>\r\n</ul>\r\n<h3><b>Quy tr&igrave;nh sản xuất&nbsp;<em>Tổ yến tinh chế 1</em></b></h3>\r\n<ul>\r\n<li>Tổ yến th&ocirc; được trực tiếp khai th&aacute;c từ c&aacute;c v&aacute;ch đ&aacute; v&agrave; hang động ở v&ugrave;ng đảo Nha Trang &ndash; Kh&aacute;nh H&ograve;a.</li>\r\n<li>Tổ yến th&ocirc; sau khi được thu hoạch sẽ chọn lọc tổ to v&agrave; đẹp nhất, l&agrave;m sạch v&agrave; sơ chế tỷ mỷ v&agrave; kỹ lưỡng.</li>\r\n<li>Sau đ&oacute;, tổ yến sẽ được trực tiếp l&agrave;m sạch thủ c&ocirc;ng 3 lần để đảm bảo sạch to&agrave;n bộ l&ocirc;ng v&agrave; tạp chất.</li>\r\n<li>Tiếp tục cho yến s&agrave;o v&agrave;o l&ograve; sấy kh&ocirc; với nhiệt độ th&iacute;ch hợp để giữ được độ tươi ngon tự nhi&ecirc;n nhất m&agrave; kh&ocirc;ng mất đi một ch&uacute;t dưỡng chất n&agrave;o.</li>\r\n<li>Bước cuối c&ugrave;ng l&agrave; kiểm duyệt chất lượng sản phẩm. C&ocirc;ng đoạn n&agrave;y được thực hiện bằng m&aacute;y m&oacute;c hiện đại.</li>\r\n</ul>\r\n<p><b>Dinh dưỡng b&ecirc;n trong&nbsp;<em>Tổ yến tinh chế 1</em></b></p>\r\n<p>Tổ yến s&agrave;o c&oacute;&nbsp;chứa tới 18 loại Acid amin c&oacute; h&agrave;m lượng&nbsp;cao&nbsp;như Aspartic acid, Serine, Tyrosine, Phenylalanine, Valine, Arginine, Leucine, &hellip; Đặc biệt trong đ&oacute; c&oacute; một số loại acid amin cơ thể kh&ocirc;ng tự tổng hợp được c&oacute; h&agrave;m lượng rất cao như: Threonine, Phenylalanine, Leucine, Valine, Isoleucine, Arginine, Methionine. V&agrave;&nbsp;<b><em>Tổ yến tinh chế 1</em></b><b><em>&nbsp;</em>giữ nguy&ecirc;n được 100% gi&aacute; trị dinh dưỡng ban đầu.</b></p>\r\n<p>B&ecirc;n cạnh đ&oacute;, tổ yến s&agrave;o c&oacute;&nbsp;<b>31 loại nguy&ecirc;n tố đa &ndash; vi lượng</b>&nbsp;cần thiết cho cơ thể con người như Mn, Br, Cu, Zn, Cr, Se &hellip; Cụ thể:</p>\r\n<ul>\r\n<li><b>Canxi</b></li>\r\n<li><b>Sắt v&agrave; Vitamin</b></li>\r\n<li><b>Valine, Serine</b></li>\r\n<li><b>Cu, Br, Zn</b></li>\r\n<li><b>Crom</b></li>\r\n<li><b>Collagen</b></li>\r\n</ul>\r\n<h2><b>C&ocirc;ng dụng&nbsp;<em>Tổ yến tinh chế 1</em></b></h2>\r\n<ul>\r\n<li>Tổ&nbsp;yến l&agrave; m&oacute;n \"b&aacute;t tr&acirc;n trong b&aacute;t tr&acirc;n\"&nbsp;c&oacute; nguồn gốc tự nhi&ecirc;n rất qu&yacute; từ xưa, chỉ được d&ugrave;ng cho vua ch&uacute;a. Đến nay, sản phẩm<em>&nbsp;<b>tổ yến&nbsp;</b></em>vẫn kh&ocirc;ng mất đi sự qu&yacute; gi&aacute; của n&oacute; v&agrave; được nhiều kh&aacute;ch h&agrave;ng lựa chọn bởi t&aacute;c dụng bồi bổ rất lớn.</li>\r\n<li>Trong tổ yến chưa 50% Protein tự nhi&ecirc;n, 18 loại Acid Amin v&agrave; hơn 31 nguy&ecirc;n tố vi lượng. Phần lớn trong số n&agrave;y l&agrave; c&aacute;c chất cơ thể con người kh&ocirc;ng tự tổng hợp được, cần phải nạp từ b&ecirc;n ngo&agrave;i. Ch&iacute;nh v&igrave; vậy,&nbsp;<b><em>tổ yến&nbsp;</em></b>c&oacute; t&aacute;c dụng rất tốt với cơ thể.</li>\r\n</ul>\r\n<p><b>Tại sao phải lựa chọn Sudes Nest</b></p>\r\n<ul>\r\n<li>Bồi đền&nbsp;500 % khi kh&aacute;ch h&agrave;ng ph&aacute;t hiện h&agrave;ng giả, h&agrave;ng chất lượng k&eacute;m.</li>\r\n<li>Đảm bảo&nbsp;b&aacute;n h&agrave;ng 100% tự nhi&ecirc;n, kh&ocirc;ng b&aacute;n h&agrave;ng tr&ocirc;i nổi.</li>\r\n<li>Nguy&ecirc;n liệu đạt chuẩn: kh&ocirc;ng h&oacute;a chất, kh&ocirc;ng chất bảo quản,&nbsp;kh&ocirc;ng&nbsp;chất phụ gia độc hại.</li>\r\n<li>Đội ngũ tư vấn vi&ecirc;n c&oacute; tr&aacute;ch nhiệm cao, nhiệt t&igrave;nh, th&acirc;n thiện, thấu hiểu mong muốn của&nbsp;kh&aacute;ch h&agrave;ng.</li>\r\n<li>H&igrave;nh thức giao h&agrave;ng v&agrave; thanh to&aacute;n linh hoạt nhất hiện nay.</li>\r\n<li class=\"\">Ưu đ&atilde;i lớn cho kh&aacute;ch h&agrave;ng đặt mua với số lượng lớn tại c&ocirc;ng ty.<img src=\"/public/storage/files/4/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg\" alt=\"\" /></li>\r\n</ul>\r\n</div>', 2750000.00, 0.00, '[{\"name\":\"choice_0\",\"title\":\"Tr\\u1ecdng l\\u01b0\\u1ee3ng\",\"options\":[\"100g\",\"200g\"]}]', '[]', '{\"100g\":{\"price\":\"2750000\",\"sku\":\"t-100g\",\"discount\":null,\"qty\":\"20\"},\"200g\":{\"price\":\"5000000\",\"sku\":\"t-200g\",\"discount\":null,\"qty\":\"10\"}}', 0, 1, 0, 0, 'gram', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Tổ yến tinh chế loại 2', 'loại tổ yến đã được làm sạch lông nhưng vẫn còn giữ nguyên hình dáng tổ yến thô đẹp mắt và còn chân yến.\r\n\r\nThực chất, yến rút lông cũng như yến tinh chế, nhưng cao cấp hơn. Tổ yến tinh chế là tổ yến được nhặt sạch lông và tạp chất nhưng nó không còn giữ được hình dạng tổ yến ban đầu. Tổ yến rút lông gần như giữ lại nguyên vẹn hình dáng ban đầu của tổ yến thô. Để làm ra được tổ yến rút lông thì tổ yến được lựa chọn phải là loại cao cấp, đẹp nhất trong nhà yến, ít lông và tạp chất nhất.\r\n\r\nĐặc điểm của yến rút lông nguyên tổ\r\n\r\n- Là dòng sản phẩm cao cấp trong các dòng yến vì để làm ra yến rút lông phải lựa những tổ yến làm bởi con chim già, tổ đẹp, rất ít lông và tạp chất, có độ dai, ngâm không rã trong nước trong thời gian nhất định. Thông thường là những tổ yến thượng hạng được chọn lựa kỹ và số lượng không nhiều nên giá nguyên liệu rất cao.\r\n\r\n- Sơ chế tổ yến bằng phương pháp rút lông đòi hỏi thợ có tay nghề cao, tỉ mỉ, chi phí nhân công cũng cao hơn. Do vậy mà giá thành của yến rút lông có phần đắt đỏ hơn các sản phẩm yến khác.\r\n\r\n- Giá trị dinh dưỡng của tổ yến rút lông được giữ nguyên giữ vì quá trình sơ chế rất hạn chế tiếp xúc với nước mà chỉ thực hiện phun ẩm tổ để dễ làm sạch.\r\n\r\n- Tổ yến rút lông gần như giữ lại nguyên vẹn hình dáng ban đầu của tổ yến thô.', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', NULL, 'to-yen-tinh-che-loai-2-327', 0.00, '2024-08-21 17:17:16', '2024-08-21 17:19:43', 30);
+INSERT INTO `products` VALUES (328, 'Tổ yến tinh chế loại 1', 'admin', 4, 96, 155, 35, 18, '[\"uploads\\/products\\/thumbnail\\/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg\"]', 'uploads/products/thumbnail/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', 'youtube', NULL, '', NULL, 2750000.00, 0.00, '[{\"name\":\"choice_0\",\"title\":\"Tr\\u1ecdng l\\u01b0\\u1ee3ng\",\"options\":[\"100g\",\"200g\"]}]', '[]', '{\"100g\":{\"price\":\"2750000\",\"sku\":\"t-100g\",\"discount\":null,\"qty\":\"20\"},\"200g\":{\"price\":\"5000000\",\"sku\":\"t-200g\",\"discount\":null,\"qty\":\"10\"}}', 0, 1, 0, 0, 'gram', 0.00, 'amount', 0.00, 'amount', 'flat_rate', 0.00, 0, 'Tổ yến tinh chế loại 1', 'loại tổ yến đã được làm sạch lông nhưng vẫn còn giữ nguyên hình dáng tổ yến thô đẹp mắt và còn chân yến.\r\n\r\nThực chất, yến rút lông cũng như yến tinh chế, nhưng cao cấp hơn. Tổ yến tinh chế là tổ yến được nhặt sạch lông và tạp chất nhưng nó không còn giữ được hình dạng tổ yến ban đầu. Tổ yến rút lông gần như giữ lại nguyên vẹn hình dáng ban đầu của tổ yến thô. Để làm ra được tổ yến rút lông thì tổ yến được lựa chọn phải là loại cao cấp, đẹp nhất trong nhà yến, ít lông và tạp chất nhất.\r\n\r\nĐặc điểm của yến rút lông nguyên tổ\r\n\r\n- Là dòng sản phẩm cao cấp trong các dòng yến vì để làm ra yến rút lông phải lựa những tổ yến làm bởi con chim già, tổ đẹp, rất ít lông và tạp chất, có độ dai, ngâm không rã trong nước trong thời gian nhất định. Thông thường là những tổ yến thượng hạng được chọn lựa kỹ và số lượng không nhiều nên giá nguyên liệu rất cao.\r\n\r\n- Sơ chế tổ yến bằng phương pháp rút lông đòi hỏi thợ có tay nghề cao, tỉ mỉ, chi phí nhân công cũng cao hơn. Do vậy mà giá thành của yến rút lông có phần đắt đỏ hơn các sản phẩm yến khác.\r\n\r\n- Giá trị dinh dưỡng của tổ yến rút lông được giữ nguyên giữ vì quá trình sơ chế rất hạn chế tiếp xúc với nước mà chỉ thực hiện phun ẩm tổ để dễ làm sạch.\r\n\r\n- Tổ yến rút lông gần như giữ lại nguyên vẹn hình dáng ban đầu của tổ yến thô.', 'uploads/products/featured/yen-rut-long-nguyen-to-100gr-lam-dep-da-tang-cuong-he-mien-dich.jpg', NULL, 'to-yen-tinh-che-loai-1-435', 0.00, '2024-08-21 17:17:21', '2024-08-21 17:20:36', 30);
 
 -- ----------------------------
 -- Table structure for provinces
 -- ----------------------------
 DROP TABLE IF EXISTS `provinces`;
 CREATE TABLE `provinces`  (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` bigint unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `gso_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of provinces
@@ -2755,16 +2759,16 @@ INSERT INTO `provinces` VALUES (63, 'Tỉnh Cà Mau', '96', '2020-11-10 12:49:38
 -- ----------------------------
 DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE `reviews`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `rating` int(11) NOT NULL DEFAULT 0,
-  `comment` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `product_id` int(0) NOT NULL,
+  `user_id` int(0) NOT NULL,
+  `rating` int(0) NOT NULL DEFAULT 0,
+  `comment` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `status` int(0) NOT NULL DEFAULT 1,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of reviews
@@ -2776,13 +2780,13 @@ INSERT INTO `reviews` VALUES (2, 275, 65, 5, 'sản phẩm tốt', 1, '2020-11-1
 -- ----------------------------
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `permissions` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `permissions` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of roles
@@ -2798,13 +2802,13 @@ INSERT INTO `roles` VALUES (5, 'Học viên', '[\"18\"]', '2020-05-02 17:03:55',
 -- ----------------------------
 DROP TABLE IF EXISTS `searches`;
 CREATE TABLE `searches`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `query` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `count` int(11) NOT NULL DEFAULT 1,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `query` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `count` int(0) NOT NULL DEFAULT 1,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of searches
@@ -2827,25 +2831,25 @@ INSERT INTO `searches` VALUES (12, 'ống đựng bút', 1, '2024-06-29 13:25:05
 -- ----------------------------
 DROP TABLE IF EXISTS `sellers`;
 CREATE TABLE `sellers`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `verification_status` int(11) NOT NULL DEFAULT 0,
-  `verification_info` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `cash_on_delivery_status` int(11) NOT NULL DEFAULT 0,
-  `sslcommerz_status` int(11) NOT NULL DEFAULT 0,
-  `stripe_status` int(11) NULL DEFAULT 0,
-  `paypal_status` int(11) NOT NULL DEFAULT 0,
-  `paypal_client_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `paypal_client_secret` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `ssl_store_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `ssl_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `stripe_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `stripe_secret` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `verification_status` int(0) NOT NULL DEFAULT 0,
+  `verification_info` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `cash_on_delivery_status` int(0) NOT NULL DEFAULT 0,
+  `sslcommerz_status` int(0) NOT NULL DEFAULT 0,
+  `stripe_status` int(0) NULL DEFAULT 0,
+  `paypal_status` int(0) NOT NULL DEFAULT 0,
+  `paypal_client_id` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `paypal_client_secret` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `ssl_store_id` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `ssl_password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `stripe_key` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `stripe_secret` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `admin_to_pay` double(8, 2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sellers
@@ -2858,52 +2862,52 @@ INSERT INTO `sellers` VALUES (2, 65, 1, '', 0, 0, NULL, 0, NULL, NULL, NULL, NUL
 -- ----------------------------
 DROP TABLE IF EXISTS `seo_settings`;
 CREATE TABLE `seo_settings`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `keyword` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `revisit` int(11) NOT NULL,
-  `sitemap_link` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `author` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `revisit` int(0) NOT NULL,
+  `sitemap_link` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of seo_settings
 -- ----------------------------
-INSERT INTO `seo_settings` VALUES (1, 'Cửa hàng gia dụng gia lai,cá khô sê san,Bánh kẹo tết gia lai', 'methaibao.com', 3, 'https://methaibao.com', 'Cửa hàng gia dụng Gia Lai', '2023-12-01 16:20:21', '2023-12-01 09:20:21');
+INSERT INTO `seo_settings` VALUES (1, 'Yến Sào Nhật Minh,Yến sào Nhật Minh Anh,Yến sào Gia Lai,tổ yến tinh', 'Yến Sào Nhật Minh', 3, 'https://yensaonhatminh.com', 'Yến Sào Nhật Minh', '2024-08-19 22:12:14', '2024-08-19 15:12:14');
 
 -- ----------------------------
 -- Table structure for shops
 -- ----------------------------
 DROP TABLE IF EXISTS `shops`;
 CREATE TABLE `shops`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `logo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `sliders` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `address` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `facebook` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `google` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `twitter` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `youtube` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `instagram` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `province` bigint(20) NULL DEFAULT NULL,
-  `district` bigint(20) UNSIGNED NULL DEFAULT NULL,
-  `wards` bigint(20) NULL DEFAULT NULL,
-  `long` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
-  `lat` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `logo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `sliders` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `address` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `facebook` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `google` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `twitter` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `youtube` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `instagram` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `slug` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `province` bigint(0) NULL DEFAULT NULL,
+  `district` bigint unsigned NULL,
+  `wards` bigint(0) NULL DEFAULT NULL,
+  `long` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
+  `lat` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
-  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `zalo` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `policy` tinytext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
-  `payment` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `phone` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `zalo` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `policy` tinytext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
+  `payment` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of shops
@@ -2915,14 +2919,14 @@ INSERT INTO `shops` VALUES (2, 65, 'Demo Seller Shop', 'uploads/hop/logo/TQrUAWW
 -- ----------------------------
 DROP TABLE IF EXISTS `sliders`;
 CREATE TABLE `sliders`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `photos_mobile` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
-  `published` int(11) NOT NULL DEFAULT 1,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `photo` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `photos_mobile` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
+  `published` int(0) NOT NULL DEFAULT 1,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sliders
@@ -2960,13 +2964,13 @@ INSERT INTO `sliders` VALUES (36, 'uploads/sliders/Slide-02.webp', '', 1, '2024-
 -- ----------------------------
 DROP TABLE IF EXISTS `staff`;
 CREATE TABLE `staff`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `role_id` int(0) NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of staff
@@ -2979,16 +2983,16 @@ INSERT INTO `staff` VALUES (25, 65, 3, '2020-11-12 10:53:01', '2020-11-12 10:53:
 -- ----------------------------
 DROP TABLE IF EXISTS `sub_categories`;
 CREATE TABLE `sub_categories`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `category_id` int(0) NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
-  `slug` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `published` int(11) NULL DEFAULT 1,
+  `slug` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `published` int(0) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_category_id`(`category_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 155 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 155 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sub_categories
@@ -3089,22 +3093,29 @@ INSERT INTO `sub_categories` VALUES (150, 'Kỷ niệm chương gỗ đồng', 9
 INSERT INTO `sub_categories` VALUES (151, 'kỷ niệm chương đế gỗ', 91, '2023-07-23 07:42:49', '2023-07-23 07:42:49', 'ky-niem-chuong-de-go', 1);
 INSERT INTO `sub_categories` VALUES (152, 'Ăn vặt', 78, '2023-11-01 17:02:05', '2023-11-01 17:02:05', 'an-vat-236', 1);
 INSERT INTO `sub_categories` VALUES (154, '12312312323', 86, '2023-11-30 16:39:01', '2023-11-30 16:39:01', '12312312323-626', 1);
+INSERT INTO `sub_categories` VALUES (155, 'Tổ yến tinh chế', 96, '2024-08-21 17:01:04', '2024-08-21 17:01:04', 'to-yen-tinh-che-346', 1);
+INSERT INTO `sub_categories` VALUES (156, 'Tổ yến thô', 96, '2024-08-21 17:01:31', '2024-08-21 17:01:31', 'to-yen-tho-452', 1);
+INSERT INTO `sub_categories` VALUES (157, 'Tổ yến làm sạch', 96, '2024-08-21 17:01:48', '2024-08-21 17:01:48', 'to-yen-lam-sach-5', 1);
+INSERT INTO `sub_categories` VALUES (158, 'Tổ yến cao cấp', 96, '2024-08-21 17:02:11', '2024-08-21 17:02:11', 'to-yen-cao-cap-689', 1);
+INSERT INTO `sub_categories` VALUES (159, 'Yến vụn', 96, '2024-08-21 17:02:27', '2024-08-21 17:02:27', 'yen-vun-542', 1);
+INSERT INTO `sub_categories` VALUES (160, 'Tổ yến rút lông', 96, '2024-08-21 17:02:45', '2024-08-21 17:02:45', 'to-yen-rut-long-978', 1);
+INSERT INTO `sub_categories` VALUES (161, 'Tổ yến cao cấp', 96, '2024-08-21 17:03:05', '2024-08-21 17:03:05', 'to-yen-cao-cap-402', 1);
 
 -- ----------------------------
 -- Table structure for sub_sub_categories
 -- ----------------------------
 DROP TABLE IF EXISTS `sub_sub_categories`;
 CREATE TABLE `sub_sub_categories`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sub_category_id` int(11) NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `brands` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `sub_category_id` int(0) NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `brands` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `slug` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `slug` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_sub_category_id`(`sub_category_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sub_sub_categories
@@ -3123,64 +3134,67 @@ INSERT INTO `sub_sub_categories` VALUES (31, 67, 'Đồ uống', '[\"18\"]', '20
 INSERT INTO `sub_sub_categories` VALUES (32, 67, 'Đồ ăn vặt', '[\"18\"]', '2020-11-16 09:48:40', '2020-11-27 23:36:29', 'do-an-vat-532');
 INSERT INTO `sub_sub_categories` VALUES (33, 152, 'Thức uống', '[\"18\"]', '2023-11-02 05:19:44', '2023-11-02 05:19:44', 'thuc-uong-968');
 INSERT INTO `sub_sub_categories` VALUES (34, 152, 'Thức ăn', '[\"18\"]', '2023-11-22 02:50:58', '2023-11-22 02:50:58', 'thuc-an-891');
+INSERT INTO `sub_sub_categories` VALUES (35, 155, 'Tổ yến tinh chế loại 1', '[\"18\"]', '2024-08-21 17:04:00', '2024-08-21 17:04:00', 'to-yen-tinh-che-loai-1-758');
+INSERT INTO `sub_sub_categories` VALUES (36, 155, 'Tổ yến tinh chế loại 2', '[\"18\"]', '2024-08-21 17:04:16', '2024-08-21 17:04:16', 'to-yen-tinh-che-loai-2-508');
+INSERT INTO `sub_sub_categories` VALUES (37, 155, 'Tổ yến tinh chế cao cấp', '[\"18\"]', '2024-08-21 17:04:54', '2024-08-21 17:04:54', 'to-yen-tinh-che-cao-cap-295');
 
 -- ----------------------------
 -- Table structure for subscribers
 -- ----------------------------
 DROP TABLE IF EXISTS `subscribers`;
 CREATE TABLE `subscribers`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `email`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for ticket_replies
 -- ----------------------------
 DROP TABLE IF EXISTS `ticket_replies`;
 CREATE TABLE `ticket_replies`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ticket_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `reply` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `ticket_id` int(0) NOT NULL,
+  `user_id` int(0) NOT NULL,
+  `reply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tickets
 -- ----------------------------
 DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `subject` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `details` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `viewed` int(11) NOT NULL DEFAULT 0,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `subject` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `details` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `viewed` int(0) NOT NULL DEFAULT 0,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `updated_at` timestamp(0) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for user_products
 -- ----------------------------
 DROP TABLE IF EXISTS `user_products`;
 CREATE TABLE `user_products`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `created_by` int(11) NULL DEFAULT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `product_id` int(0) NOT NULL,
+  `status` int(0) NOT NULL,
+  `created_by` int(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `order_code` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `order_code` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 111 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 111 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_products
@@ -3196,34 +3210,34 @@ INSERT INTO `user_products` VALUES (110, 63, 265, 1, NULL, '2020-09-16 19:48:45'
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `provider_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `user_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'customer',
-  `name` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL,
+  `provider_id` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `user_type` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'customer',
+  `name` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `email_verified_at` timestamp(0) NULL DEFAULT NULL,
-  `password` varchar(191) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `avatar` varchar(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `avatar_original` varchar(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `address` varchar(300) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `country` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `city` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `postal_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
-  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `password` varchar(191) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `avatar` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `avatar_original` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `address` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `country` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `city` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `postal_code` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
+  `phone` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL,
   `balance` double(8, 2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
-  `affiliate_id` int(11) NULL DEFAULT NULL,
-  `created_by` int(11) NULL DEFAULT NULL,
-  `Ordered` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT '',
-  `province` bigint(20) NULL DEFAULT NULL,
-  `district` bigint(20) NULL DEFAULT NULL,
-  `wards` bigint(20) NULL DEFAULT NULL,
+  `affiliate_id` int(0) NULL DEFAULT NULL,
+  `created_by` int(0) NULL DEFAULT NULL,
+  `Ordered` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT '',
+  `province` bigint(0) NULL DEFAULT NULL,
+  `district` bigint(0) NULL DEFAULT NULL,
+  `wards` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE,
   UNIQUE INDEX `affiliate_id`(`affiliate_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
@@ -3238,31 +3252,31 @@ INSERT INTO `users` VALUES (65, NULL, 'seller', 'Nguyễn Thu Hằng', 'tuyenmh8
 -- ----------------------------
 DROP TABLE IF EXISTS `wallets`;
 CREATE TABLE `wallets`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
   `amount` double(8, 2) NOT NULL,
-  `payment_method` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `payment_details` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `payment_method` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `payment_details` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for wards
 -- ----------------------------
 DROP TABLE IF EXISTS `wards`;
 CREATE TABLE `wards`  (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` bigint unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `gso_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `district_id` bigint(20) UNSIGNED NOT NULL,
+  `district_id` bigint unsigned NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `wards_district_id_foreign`(`district_id`) USING BTREE,
   CONSTRAINT `wards_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 10615 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10615 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wards
@@ -13887,7 +13901,7 @@ INSERT INTO `wards` VALUES (10614, 'Xã Đất Mũi', '32248', 702, '2020-11-10 
 -- ----------------------------
 DROP TABLE IF EXISTS `widgets`;
 CREATE TABLE `widgets`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `alias` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
@@ -13900,7 +13914,7 @@ CREATE TABLE `widgets`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of widgets
@@ -13926,13 +13940,13 @@ INSERT INTO `widgets` VALUES (49, 'widget-afflicate', '[widget-afflicate]', 'wid
 -- ----------------------------
 DROP TABLE IF EXISTS `wishlists`;
 CREATE TABLE `wishlists`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NOT NULL,
+  `product_id` int(0) NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wishlists
